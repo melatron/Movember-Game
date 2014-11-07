@@ -1,0 +1,21 @@
+.clear:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.fleft {
+	float: left !important;
+}
+.fright {
+	float: right !important;
+}
+
+.tleft {
+	text-align: left !important;
+}
+.tcenter {
+	text-align: center !important;
+}
+.tright {
+	text-align: right !important;
+}
