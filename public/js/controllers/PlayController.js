@@ -12,14 +12,26 @@
 		var volume = 0,
 			startDelay = 1,
 			startDelayInterval,
+			playTime = 20,
 			playing = false,
 			playTimer = new mr.Countdown({
-				seconds: 100,
+				seconds: playTime,
 				onUpdateStatus: function(options) {
+					console.log(options);
 					var markup = $('.counter', scope);
 
 					if (markup.length > 0) {
-						markup.text(Math.floor(options.ms / 1000));
+						var seconds = Math.floor(options.ms / 1000),
+							elapsed = (seconds / playTime) * 100;
+						
+						// Check if the timer is below 20% || 10%
+						if (seconds <= 5) {
+							markup.addClass('danger-text');
+						} else if (seconds <= 10) {
+							markup.addClass('caution-text');
+						} 
+
+						markup.text(options.min + ':' + options.s);
 					} else {
 						timer.stop();
 					}
@@ -48,7 +60,7 @@
 		});
 
 		// Handle player click
-		$('.moustache', scope).on('click', function() {
+		$('.moustache', scope).on('click', function(event) {
 			// Check if we can play
 			if (!playing) {
 				return;
@@ -59,6 +71,15 @@
 			$('.volume span', scope)
 				.text(volume)
 				.addClass('pulse');
+
+			// Indicate the plus
+			var plus = $('<div class="plus animated fadeOutUp"></div>')
+	            .css({
+					left: (event.pageX - (event.pageX - this.offsetLeft)) + 50
+				}).on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+					$(this).remove();
+				});
+			$(this).append(plus);
 		});
 	};
 
