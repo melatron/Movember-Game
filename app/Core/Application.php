@@ -67,5 +67,3 @@ class Application
 		return $result = $controller->$method($params);
 	}
 }
-
-?>
