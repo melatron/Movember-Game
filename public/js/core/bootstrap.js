@@ -26,13 +26,6 @@ $(document).ready(function() {
 		}, 200);
 	});
 
-	$(window).on('windowResized', function() {
-		$('body').css({
-			width: window.innerWidth,
-			height: window.innerHeight
-		});
-	}).trigger('windowResized');
-	
-
-	$('.screen.play').show();
+	// Fire the play logic
+	mr.fireController('Play', $('.game-wrapper'));
 });
