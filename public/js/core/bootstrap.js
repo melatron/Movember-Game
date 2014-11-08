@@ -31,4 +31,6 @@ $(document).ready(function() {
 			ig.main('#mr-game', MovemberGame, 30, gameWidth, gameHeight, 1, IHLoader);
 		});
 	}
+
+	$('.screen.home').show();
 });
