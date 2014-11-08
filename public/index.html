@@ -13,6 +13,7 @@
   		<link rel="stylesheet" href="css/main.css" />
   		<link rel="stylesheet" href="css/game.css" />
   		<link rel="stylesheet" href="css/worldmap.css" />
+
   		<link rel="shortcut icon" href="images/favicon.png" />
 	</head>
 	<body>
@@ -23,7 +24,7 @@
 				<div class="game-section">
 					<div class="player"></div>
 					<div class="volume">0</div>
-					<div class="counter">10:00</div>
+					<div class="counter">0</div>
 				</div>
 				<div id="game-start-ui">
 					<button class="big-button">Play</button>
@@ -34,17 +35,26 @@
 			<!-- END PLAY SCREEN -->
 
 			<!-- START WORLD MAP -->
-			<div id="paper" class="ui-hide"></div>
+			<div class="worldmap ui-hide">
+				<div id="paper"></div>
+			</div>
 			<!-- END WORLD MAP -->
 		</div>
 		<!-- END GAME SCREEN -->
 
-		<!-- SCRIPTS -->
+		<!-- VENDORS -->
 		<script src="js/vendors/jquery-2.1.1.js"></script>
 		<script src="js/vendors/raphael-min.js"></script>
+		<!-- CORE -->
 		<script src="js/core/mr.js"></script>
-		<script src="js/core/bootstrap.js"></script>
+		<!-- CONTROLLERS -->
+		<script src="js/controllers/BaseController.js"></script>
+		<script src="js/controllers/PlayController.js"></script>
+
 		<script src="js/world.js"></script>
 		<script src="js/WorldMapController.js"></script>
+		<script src="js/TimeCountdownClass.js"></script>
+		<!-- INIT -->
+		<script src="js/core/bootstrap.js"></script>
 	</body>
 </html>

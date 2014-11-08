@@ -16,13 +16,18 @@
 		if (now <= 0) {
 			counterEnd();
 			instance.stop();
-		}
-		else if (currentSeconds != last) {
+		} else if (currentSeconds != last) {
 			var hours = parseInt(currentSeconds / 3600) < 10 ? '0' + parseInt(currentSeconds / 3600) : parseInt(currentSeconds / 3600),
 				minutes = parseInt(currentSeconds / 60) % 60 < 10 ? '0' + parseInt(currentSeconds / 60) % 60 : parseInt(currentSeconds / 60) % 60,
 				secondZ = parseInt(currentSeconds) % 60 < 10 ? '0' + parseInt(currentSeconds) % 60 : parseInt(currentSeconds) % 60;
 
-			updateStatus(now, hours + ': ' + minutes + ': ' + secondZ, instance);
+			updateStatus({
+				hours: hours,
+				min: minutes,
+				s: secondZ,
+				ms: now,
+				instance: instance
+			});
 			last = currentSeconds;
 		}
 	}

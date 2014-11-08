@@ -26,6 +26,8 @@ $(document).ready(function() {
 		}, 200);
 	});
 
+	$('.game-wrapper .play').show();
+
 	// Fire the play logic
 	mr.fireController('Play', $('.game-wrapper'));
 });
