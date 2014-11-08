@@ -1,21 +1,52 @@
-.clear:after {
-  content: '';
-  display: table;
-  clear: both;
-}
 .fleft {
-	float: left !important;
+	float: left;
 }
 .fright {
-	float: right !important;
+	float: right;
+}
+.clear:before,
+.clear:after {
+	content: '';
+	display: table;
+}
+.clear:after { 
+	clear: both;
 }
 
-.tleft {
-	text-align: left !important;
-}
 .tcenter {
-	text-align: center !important;
+	text-align: center;
+}
+.tleft {
+	text-align: left;
 }
 .tright {
-	text-align: right !important;
+	text-align: right;
+}
+.mauto {
+	margin-left: auto;
+	margin-right: auto;
+}
+.num {
+	direction: ltr;
+	text-align: right;
+}
+.block {
+	display: block;
+}
+
+.iblock {
+	display: inline-block;
+}
+
+.ui-hide {
+	display: none;
+}
+
+.pointer {
+	cursor: pointer;
+}
+.no-select {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 }
