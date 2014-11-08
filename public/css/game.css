@@ -1,0 +1,14 @@
+#main-game-screen {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-color: #f37351;
+}
+
+.player {
+	position: absolute;
+	bottom: 0px;
+	width: 410px;
+	height: 460px;
+	background-image: url(../images/character/avatar.png);
+}
