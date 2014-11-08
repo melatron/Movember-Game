@@ -7,6 +7,12 @@
  * @issued 08.11.2014
  */
 $(document).ready(function() {
+
+	// Trigger event when the window is resized
+	var timer,
+		windowHeight,
+		windowWidth;
+
 	$(window).on('resize', function() {
 		timer && clearTimeout(timer);
 
@@ -20,15 +26,14 @@ $(document).ready(function() {
 		}, 200);
 	});
 
-	// Impact Stuff ATM
-	var gameWidth = $('body').width(),
-		gameHeight = $('body').height();
-
-	if (typeof(MovemberGame) != 'undefined') {
-		ig.main('#mr-game', MovemberGame, 30, gameWidth, gameHeight, 1, IHLoader);
-	} else {
-		$(window).on('loadedImpact', function() {
-			ig.main('#mr-game', MovemberGame, 30, gameWidth, gameHeight, 1, IHLoader);
+	// Adjust the body width & height
+	$(window).on('windowResized', function() {
+		$('body').css({
+			width: window.innerWidth,
+			height: window.innerHeight
 		});
-	}
+	}).trigger('windowResized');
+
+	// Fire the play logic
+	mr.fireController('Play', $('.game-wrapper'));
 });

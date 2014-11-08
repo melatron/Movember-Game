@@ -11,34 +11,43 @@
   		<link rel="stylesheet" href="css/vendors/normalize.min.css" />
   		<link rel="stylesheet" href="css/core/common.css" />
   		<link rel="stylesheet" href="css/main.css" />
+  		<link rel="stylesheet" href="css/play.css" />
+  		<link rel="stylesheet" href="css/worldmap.css" />
+  		<link rel="stylesheet" href="css/gamble.css" />
 
   		<link rel="shortcut icon" href="images/favicon.png" />
 	</head>
 	<body>
-		<!-- START HOME SCREEN -->
-		<div class="screen home ui-hide">
-			
+		<!-- START GAME -->
+		<div class="game-wrapper">
+			<!-- START PLAY SCREEN -->
+			<div class="play ui-hide">
+				<div class="volume">0</div>
+				<div class="player"></div>
+				<div class="counter">10:00</div>
+			</div>
+			<!-- END PLAY SCREEN -->
+
+			<!-- START WORLD MAP -->
+			<div class="worldmap">
+				<div id="paper"></div>
+			</div>
+			<!-- END WORLD MAP -->
 		</div>
-		<!-- END HOME SCREEN -->
+		<!-- END GAME SCREEN -->
 
-		<!-- START PLAY SCREEN -->
-		<div class="screen play ui-hide">
-			<canvas id="mr-game" class="block"></canvas>
-		</div>
-		<!-- END PLAY SCREEN -->
-
-		<!-- START GAMBLE SCREEN -->
-		<div class="screen gamble ui-hide">
-
-		</div>
-		<!-- END GAMBLE SCREEN -->
-
-
-		<!-- SCRIPTS -->
+		<!-- VENDORS -->
 		<script src="js/vendors/jquery-2.1.1.js"></script>
-		<script src="js/vendors/impactJS/impact/impact.js"></script>
-		<script src="js/vendors/impactJS/game/main.js"></script>
+		<script src="js/vendors/raphael-min.js"></script>
+		<!-- CORE -->
 		<script src="js/core/mr.js"></script>
+		<!-- CONTROLLERS -->
+		<script src="js/controllers/BaseController.js"></script>
+		<script src="js/controllers/PlayController.js"></script>
+
+		<script src="js/world.js"></script>
+		<script src="js/WorldMapController.js"></script>
+		<!-- INIT -->
 		<script src="js/core/bootstrap.js"></script>
 	</body>
 </html>
