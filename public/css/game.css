@@ -5,10 +5,56 @@
 	background-color: #f37351;
 }
 
+.game-section {
+	position: relative;
+	width: 450px;
+	height: 100%;
+	font-family: Helsinki;
+	text-shadow: 2px 3px 1px rgba(0, 0, 0, 0.5);
+	font-size: 1.7em;
+}
+
 .player {
 	position: absolute;
 	bottom: 0px;
+	left: 50%;
+	margin-left: -205px;
 	width: 410px;
 	height: 460px;
 	background-image: url(../images/character/avatar.png);
+}
+
+.volume {
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	margin-left: -135px;
+	width: 270px;
+	height: 75px;
+	text-align: center;
+	padding-top: 5px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background-image: url(../images/ui/volume_box.png);
+}
+
+.counter {
+	position: absolute;
+	left: 50%;
+	margin-left: -100px;
+	bottom: 0px;
+	width: 200px;
+	height: 75px;
+	padding-top: 35px;
+	padding-right: 75px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	text-align: right;
+	background-image: url(../images/ui/timer_box.png);
+}
+
+#game-start-ui {
+
 }
