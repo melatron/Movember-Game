@@ -5,5 +5,3 @@ class ApplicationException extends \Exception
 {
 
 }
-
-?>

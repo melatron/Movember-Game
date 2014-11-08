@@ -1,13 +1,8 @@
 <?php
 namespace Controller;
 
-abstract class AbstractAjaxController
+abstract class AbstractController
 {
-	protected static $before = array(),
-					$after = array();
-
 	public function before($result) {}
 	public function after($result) {}
 }
-
-?>

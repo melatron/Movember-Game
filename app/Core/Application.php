@@ -1,8 +1,8 @@
 <?php
 namespace Core;
 
-use Controller\AbstractAjaxController;
 use Core\Exception\ApplicationException;
+use Controller\AbstractController;
 
 class Application
 {
@@ -55,7 +55,7 @@ class Application
 
 		$controller = new $controllerName();
 
-		if (! $controller instanceof AbstractAjaxController) {
+		if (! $controller instanceof AbstractController) {
 			throw new ApplicationException('Controller must be an instance of AbstractAjaxController');
 		}
 
@@ -67,5 +67,3 @@ class Application
 		return $result = $controller->$method($params);
 	}
 }
-
-?>

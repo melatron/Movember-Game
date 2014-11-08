@@ -9,15 +9,17 @@
 	var controller = new mr.controllers.BaseController;
 
 	controller.init = function(scope) {
+		$('.tap-to-start')
+			.removeClass('ui-hide')
+			.addClass('flipInX');
+
 		var volume = 0,
-			startDelay = 1,
-			startDelayInterval,
-			playTime = 20,
+			playTime = 10,
+			firstTap = false,
 			playing = false,
 			playTimer = new mr.Countdown({
 				seconds: playTime,
 				onUpdateStatus: function(options) {
-					console.log(options);
 					var markup = $('.counter', scope);
 
 					if (markup.length > 0) {
@@ -26,7 +28,7 @@
 						
 						// Check if the timer is below 20% || 10%
 						if (seconds <= 5) {
-							markup.addClass('danger-text');
+							markup.addClass('danger-text pulse');
 						} else if (seconds <= 10) {
 							markup.addClass('caution-text');
 						} 
@@ -41,26 +43,27 @@
 				}
 			});
 
-		// Start delay
-		startDelayInterval = setInterval(function() {
-			if (startDelay == 0) {
-				clearInterval(startDelayInterval);
-
-				playTimer.start();
-				playing = true;
-
-				return;
-			}
-
-			startDelay -= 1;
-		}, 1000);
-
 		$('.volume span').on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 			$(this).removeClass('pulse');
 		});
 
 		// Handle player click
 		$('.moustache', scope).on('click', function(event) {
+			// Check for first tap
+			if (!firstTap) {
+				$('.tap-to-start', scope)
+					.addClass('flipOutX')
+					.on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+						$(this).remove();
+
+						firstTap = true;
+
+						playTimer.start();
+						playing = true;
+					});
+				return;
+			}
+
 			// Check if we can play
 			if (!playing) {
 				return;
@@ -72,8 +75,8 @@
 				.text(volume)
 				.addClass('pulse');
 
-			// Indicate the plus
-			var plus = $('<div class="plus animated fadeOutUp"></div>')
+			// Indicate the +1 hair
+			var plus = $('<div class="plus-box animated fadeOutUp"></div>')
 	            .css({
 					left: (event.pageX - (event.pageX - this.offsetLeft)) + 50
 				}).on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
@@ -81,6 +84,10 @@
 				});
 			$(this).append(plus);
 		});
+
+		$('.volume').animate({top:'0px'},1000);
+		$('.counter').animate({bottom:'0px'},1000);
+
 	};
 
 	mr.controllers.Play = controller;

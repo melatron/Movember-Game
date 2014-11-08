@@ -6,6 +6,6 @@ use Ratchet\WebSocket\WsServer;
 
 require_once 'Core/_init.php';
 
-$server = IoServer::factory(new WsServer(new App()), 8080);
+$server = IoServer::factory(new WsServer(new App()), 1337);
 
 $server->run();
