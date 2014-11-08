@@ -12,7 +12,7 @@ $(document).ready(function() {
 	var timer,
 		windowHeight,
 		windowWidth;
-			
+
 	$(window).on('resize', function() {
 		timer && clearTimeout(timer);
 
@@ -34,5 +34,5 @@ $(document).ready(function() {
 	}).trigger('windowResized');
 	
 
-	$('.screen.world').show();
+	$('.screen.play').show();
 });
