@@ -26,14 +26,6 @@ $(document).ready(function() {
 		}, 200);
 	});
 
-	// Adjust the body width & height
-	$(window).on('windowResized', function() {
-		$('body').css({
-			width: window.innerWidth,
-			height: window.innerHeight
-		});
-	}).trigger('windowResized');
-
 	// Fire the play logic
 	mr.fireController('Play', $('.game-wrapper'));
 });
