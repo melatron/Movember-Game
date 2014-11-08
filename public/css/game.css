@@ -76,6 +76,14 @@
 	background-image: url(../images/ui/timer_box.png);
 }
 
+.caution-text {
+	color: #ff9a00;
+}
+
+.danger-text {
+	color: #ff2700;
+}
+
 #game-start-ui {
 	position: absolute;
 	top: 0px;
