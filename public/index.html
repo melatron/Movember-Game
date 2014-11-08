@@ -18,28 +18,17 @@
   		<link rel="shortcut icon" href="images/favicon.png" />
 	</head>
 	<body>
-		<!-- START HOME SCREEN -->
-		<div class="screen home ui-hide"></div>
-		<!-- END HOME SCREEN -->
-
-		<!-- START PLAY SCREEN -->
-		<div class="screen play ui-hide">
+		<!-- START GAME -->
+		<div class="game-wrapper">
 			<div class="volume">0</div>
 			<div class="player"></div>
 			<div class="counter">10:00</div>
+
+			<!-- START WORLD MAP -->
+			<div id="paper" class="ui-hide"></div>
+			<!-- END WORLD MAP -->
 		</div>
-		<!-- END PLAY SCREEN -->
-
-		<!-- START GAMBLE SCREEN -->
-		<div class="screen gamble ui-hide"></div>
-		<!-- END GAMBLE SCREEN -->
-
-		<!-- START GAMBLE SCREEN -->
-		<div class="screen world ui-hide">
-			<div id="paper"></div>
-		</div>
-		<!-- END GAMBLE SCREEN -->
-
+		<!-- END GAME SCREEN -->
 
 		<!-- SCRIPTS -->
 		<script src="js/vendors/jquery-2.1.1.js"></script>
