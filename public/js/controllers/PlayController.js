@@ -9,7 +9,8 @@
 	var controller = new mr.controllers.BaseController;
 
 	controller.init = function(scope) {
-		$('.tap-to-start')
+		// Show the info how to start
+		$('.tap-to-start', scope)
 			.removeClass('ui-hide')
 			.addClass('flipInX');
 
@@ -85,8 +86,12 @@
 			$(this).append(plus);
 		});
 
-		$('.volume').animate({top:'0px'},1000);
-		$('.counter').animate({bottom:'0px'},1000);
+		$('.volume', scope).animate({
+			top: '0px'
+		}, 1000);
+		$('.counter', scope).animate({
+			bottom: '0px'
+		},1000);
 
 	};
 
