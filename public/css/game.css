@@ -33,6 +33,10 @@
 		width: 278px;
 		height: 145px;
 		background: url('../images/moustaches/moustache_1.png');
+		animation-duration: 0.25s;
+  		animation-delay: 0s;
+		-webkit-animation-duration: 0.25s;
+  		-webkit-animation-delay: 0s;
 	}
 
 .volume {
@@ -49,6 +53,12 @@
 	box-sizing: border-box;
 	background-image: url(../images/ui/volume_box.png);
 }
+	.volume span {
+		animation-duration: 0.25s;
+  		animation-delay: 0s;
+		-webkit-animation-duration: 0.25s;
+  		-webkit-animation-delay: 0s;
+	}
 
 .counter {
 	position: absolute;

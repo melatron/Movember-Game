@@ -10,7 +10,7 @@
 
 	controller.init = function(scope) {
 		var volume = 0,
-			startDelay = 3,
+			startDelay = 1,
 			startDelayInterval,
 			playing = false,
 			playTimer = new mr.Countdown({
@@ -43,6 +43,10 @@
 			startDelay -= 1;
 		}, 1000);
 
+		$('.volume span').on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+			$(this).removeClass('pulse');
+		});
+
 		// Handle player click
 		$('.moustache', scope).on('click', function() {
 			// Check if we can play
@@ -52,7 +56,9 @@
 
 			volume += 1;
 
-			$('.volume', scope).text(volume);
+			$('.volume span', scope)
+				.text(volume)
+				.addClass('pulse');
 		});
 	};
 
