@@ -16,6 +16,12 @@ body {
 	position: relative;
 }
 
+.big-button {
+	width: 260px;
+	height: 100px;
+	background-image: url(../images/ui/button_normal.png);
+}
+
 #paper {
 	transform: scale(3,3);
 	left: 0;
