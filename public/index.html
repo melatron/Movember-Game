@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 	<head>
   		<meta charset="utf-8" />
@@ -15,13 +15,24 @@
   		<link rel="shortcut icon" href="images/favicon.png" />
 	</head>
 	<body>
-		<!-- START UI -->
-		<div id="game-ui">
-			UI
+		<!-- START HOME SCREEN -->
+		<div class="screen home ui-hide">
+			
 		</div>
-		<!-- END UI -->
+		<!-- END HOME SCREEN -->
 
-		<canvas id="mr-game" class="block"></canvas>
+		<!-- START PLAY SCREEN -->
+		<div class="screen play ui-hide">
+			<canvas id="mr-game" class="block"></canvas>
+		</div>
+		<!-- END PLAY SCREEN -->
+
+		<!-- START GAMBLE SCREEN -->
+		<div class="screen gamble ui-hide">
+
+		</div>
+		<!-- END GAMBLE SCREEN -->
+
 
 		<!-- SCRIPTS -->
 		<script src="js/vendors/jquery-2.1.1.js"></script>
