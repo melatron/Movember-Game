@@ -1,4 +1,6 @@
 ﻿mr.Countdown = function Countdown(options) {
+	'use strict';
+
 	var timer,
 		instance = this,
 		seconds = parseInt(options.seconds) * 1000 || 10000,
@@ -34,4 +36,12 @@
 	this.stop = function () {
 		clearInterval(timer);
 	};
+
+	this.addSeconds = function (secondsToAdd) {
+		seconds += secondsToAdd;
+	}
+
+	this.removeSeconds = function (secondsToRemove) {
+		seconds -= secondsToRemove;
+	}
 };

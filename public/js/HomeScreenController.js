@@ -18,8 +18,8 @@
 			mr.donateScreen.init();
 		});
 
-		$('.achivement-button').off('click').on('click', function () {
-
+		$('.achivements-button').off('click').on('click', function () {
+			mr.achivementsScreen.init();
 		});
 	}
 
