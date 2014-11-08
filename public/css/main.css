@@ -28,6 +28,7 @@ button:focus {
 	background-size: 100% 100%;
 	background-image: url(../images/ui/button_normal.png);
 	font-family: "Helsinki";
+	font-size: 30px;
 	display: block;
 }
 

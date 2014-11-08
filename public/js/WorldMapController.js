@@ -1,7 +1,7 @@
 ﻿var worldMapController = (function(){
 	var R = Raphael("paper", 1000, 500);
 	var attr = {
-		fill: "#333",
+		fill: "#ff6700",
 		stroke: "#b62600",
 		"stroke-width": 0.5,
 		"stroke-linejoin": "round"
@@ -30,7 +30,7 @@
 			(function (st, state) {
 				st[0].style.cursor = "pointer";
 				st[0].onmouseover = function (e) {
-					currentNation && world[currentNation].animate({ fill: "#333", stroke: "#b62600" }, 500);// && (document.getElementById(current).style.display = "");
+					currentNation && world[currentNation].animate({ fill: "#ff6700", stroke: "#b62600" }, 500);// && (document.getElementById(current).style.display = "");
 					st.animate({ fill: st.color, stroke: "#ccc" }, 500);
 					st.toFront();
 					R.safari();
@@ -44,7 +44,7 @@
 				};
 				st[0].onmouseout = function () {
 					$('.nation-tooltip').hide();
-					st.animate({ fill: "#333", stroke: "#b62600" }, 500);
+					st.animate({ fill: "#ffa112", stroke: "#b62600" }, 500);
 					st.toFront();
 					R.safari();
 				};
@@ -149,12 +149,22 @@
 			}, 200);
 		}
 	}
+
 	function addEvents() {
-		$('svg').on('mousedown', mouseDownLogic);
-		$(document).on('mouseup', mouseUpLogic);
-		$(document).on('mousemove', mouseMoveLogic);
+		$('svg').off('mousedown').on('mousedown', mouseDownLogic);
+		$(document).off('mouseup').on('mouseup', mouseUpLogic);
+		$(document).off('mousemove').on('mousemove', mouseMoveLogic);
+		$('.close-button').off('click').on('click',function(){
+			closeWorldMap();
+		});
 	}
-	
+
+	function removeEvents(){
+		$('svg').off('mousedown');
+		$(document).off('mouseup');
+		$(document).off('mousemove');
+		$('.close-button').off('click');
+	}
 	//$('body').tooltip({
 	//	items: '[data-tooltip]',
 	//	track: true,
@@ -167,11 +177,27 @@
 	//	}
 	//});
 
+	function openWorldMap(){
+		$('.worldmap').animate({
+			top: '0px'
+		},700);
+
+		addEvents();
+	}
+
+	function closeWorldMap(){
+		removeEvents();
+		$('.worldmap').animate({
+			top: '-550px'
+		},700);
+		mr.fireController('Menu',$('.game-container'));
+	}
+
 	return {
 		init: function () {
 			setWorldMap();
-			addEvents();
-		}
+		},
+		open: openWorldMap
 	}
 })();
 

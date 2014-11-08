@@ -4,7 +4,7 @@
   		<meta charset="utf-8" />
 
  		<title>Moustache</title>
-  		<meta name="description" content="SOON" />
+  		<meta name="description" content="A game about a stache" />
   		<meta name="author" content="Bropundzel" />
 
   		<!-- CSS -->
@@ -30,23 +30,33 @@
 						<span class="animated">0</span>
 					</div>
 					<div class="counter">00:00</div>
-
-					<div id="start-overlay">
-						<div class="start-one"></div>
-						<div class="start-two"></div>
-						<div class="start-three"></div>
-					</div>
 				</div>
 				<div id="game-start-ui">
-					<button class="big-button">Play</button>
-					<button class="big-button">Donate</button>
-					<button class="big-button">World Map</button>
+					<button class="big-button" id="play-button">
+						<img src="images/ui/moustache_icon.png">
+						<span> Play</span>
+						</button>
+					<button class="big-button" id="donation-button">
+						<img src="images/ui/donation_icon.png">
+						<span> Donate</span>
+					</button>
+					<button class="big-button" id="map-button">
+						<img src="images/ui/world_map_icon.png">
+						<span> Map</span>
+					</button>
+				</div>
+				<div id="donation-window">
+					<div class="close-button">X</div>
+					<div class="movember-logo"></div>
+					<p id="donation-description">November is a month dedicated to raising awareness about men's health issues. While growing a moustache certainly helps, the best way to contribute to the fight against cancer is to donate. Clicking below will open a new window where you can make your donation.</p>
+					<button id="donate-open" class="big-button">Thank you</button>
 				</div>
 			</div>
 			<!-- END PLAY SCREEN -->
 
 			<!-- START WORLD MAP -->
-			<div class="worldmap ui-hide">
+			<div class="worldmap">
+				<div class="close-button">X</div>
 				<div id="paper"></div>
 				<div class="nation-tooltip">
 					<div class="country-moustache-image"></div>
@@ -66,11 +76,14 @@
 		<!-- VENDORS -->
 		<script src="js/vendors/jquery-2.1.1.js"></script>
 		<script src="js/vendors/raphael-min.js"></script>
+		<script src="js/vendors/jquery-ui-1.11.1.js"></script>
 		<!-- CORE -->
 		<script src="js/core/mr.js"></script>
 		<!-- CONTROLLERS -->
 		<script src="js/controllers/BaseController.js"></script>
+		<script src="js/controllers/MenuController.js"></script>
 		<script src="js/controllers/PlayController.js"></script>
+		<script src="js/controllers/DonationController.js"></script>
 
 		<script src="js/world.js"></script>
 		<script src="js/WorldMapController.js"></script>

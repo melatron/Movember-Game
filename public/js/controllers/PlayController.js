@@ -81,6 +81,10 @@
 				});
 			$(this).append(plus);
 		});
+
+		$('.volume').animate({top:'0px'},1000);
+		$('.counter').animate({bottom:'0px'},1000);
+
 	};
 
 	mr.controllers.Play = controller;
