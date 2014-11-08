@@ -25,7 +25,7 @@
 
 		$('#play-button').on('click',function(){
 			commonButtonActions();
-			mr.fireController('Play',gameWrapper);
+			mr.fireController('Play', gameWrapper);
 		});
 
 		$('#donation-button').on('click',function(){

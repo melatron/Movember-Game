@@ -9,6 +9,10 @@
 	var controller = new mr.controllers.BaseController;
 
 	controller.init = function(scope) {
+		$('.tap-to-start')
+			.removeClass('ui-hide')
+			.addClass('flipInX');
+
 		var volume = 0,
 			playTime = 10,
 			firstTap = false,

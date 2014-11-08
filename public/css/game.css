@@ -63,6 +63,11 @@
 			height: 50px;
 			background-image: url('../images/plus_one.png');
 		}
+		.tap-to-start {
+			position: absolute;
+			font-size: 36px;
+			width: 290px;
+		}
 
 .volume {
 	position: absolute;
