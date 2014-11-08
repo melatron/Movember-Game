@@ -39,6 +39,13 @@
   		-webkit-animation-delay: 0s;
 	}
 
+.plus-box {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background-image: url('../images/plus_one.png');
+}
+
 .volume {
 	position: absolute;
 	top: 0px;
@@ -85,11 +92,12 @@
 }
 
 #game-start-ui {
+	top: 200px;
+	width: 260px;
 	position: absolute;
-	top: 0px;
 	right: 20px;
 }
 
 #game-start-ui>.big-button {
-	margin-bottom:25px;
+	margin-bottom: 20px;
 }
