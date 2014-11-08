@@ -25,7 +25,7 @@
 
 	return {
 		init: function () {
-
+			addEvents();
 		}
 	}
 })();
