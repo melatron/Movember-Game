@@ -26,6 +26,14 @@
 	height: 460px;
 	background-image: url(../images/character/avatar.png);
 }
+	.moustache {
+		position: absolute;
+			top: 176px;
+			left: 58px;
+		width: 278px;
+		height: 145px;
+		background: url('../images/moustaches/moustache_1.png');
+	}
 
 .volume {
 	position: absolute;

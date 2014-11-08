@@ -2,8 +2,8 @@
 	var R = Raphael("paper", 1000, 500);
 	var attr = {
 		fill: "#333",
-		stroke: "#666",
-		"stroke-width": 1,
+		stroke: "#b62600",
+		"stroke-width": 0.5,
 		"stroke-linejoin": "round"
 	};
 	var world = {};
@@ -23,21 +23,109 @@
 		(function (st, state) {
 			st[0].style.cursor = "pointer";
 			st[0].onmouseover = function () {
-				current && world[current].animate({ fill: "#333", stroke: "#666" }, 500) && (document.getElementById(current).style.display = "");
+				current && world[current].animate({ fill: "#333", stroke: "#b62600" }, 500);// && (document.getElementById(current).style.display = "");
 				st.animate({ fill: st.color, stroke: "#ccc" }, 500);
 				st.toFront();
 				R.safari();
-				document.getElementById(state).style.display = "block";
+				// Logic for the popUp here: 
 				current = state;
 			};
 			st[0].onmouseout = function () {
-				st.animate({ fill: "#333", stroke: "#666" }, 500);
+				st.animate({ fill: "#333", stroke: "#b62600" }, 500);
 				st.toFront();
 				R.safari();
 			};
-			//if (state == "AF") {
+			//if (state == "AF") { Hovering your country !!!;
 			//	st[0].onmouseover();
 			//}
 		})(world[state], state);
 	}
+
+	var isDragging = false,
+		startingX = 0,
+		startingY = 0,
+		resY = 0,
+		resX = 0,
+		diffX = 0,
+		diffY = 0,
+		flag = false;
+
+	function mouseDownLogic(e) {
+		isDragging = true;
+		flag = true;
+		console.log(isDragging + ' down:', e);
+
+		var parentOffset = $('.worldmap').parent().offset();
+		var relativeXPosition = (parseInt(e.pageX) - parseInt(parentOffset.left)); //offset -> method allows you to retrieve the current position of an element 'relative' to the document
+		var relativeYPosition = (parseInt(e.pageY) - parseInt(parentOffset.top));
+		//console.log(relativeXPosition, relativeYPosition);
+		startingX = relativeXPosition;
+		startingY = relativeYPosition;
+	}
+
+	function mouseMoveLogic(e) {
+		if (isDragging) {
+			
+			var parentOffset = $('.worldmap').parent().offset();
+			var relativeXPosition = (e.pageX - parentOffset.left); //offset -> method allows you to retrieve the current position of an element 'relative' to the document
+			var relativeYPosition = (e.pageY - parentOffset.top);
+			console.log(startingX, startingY);
+
+			resX = (parseInt(relativeXPosition) - startingX) + diffX,
+			resY = parseInt(relativeYPosition) - startingY + diffY;
+			//console.log('x: ' + resX + ' y: ' + resY);
+
+				$('#paper').css({
+					top: + resY,
+					left: + resX
+				});
+		}
+	}
+
+	function mouseUpLogic(e) {
+		isDragging = false;
+		flag = false;
+		diffX = resX;
+		diffY = resY;
+
+		var topEnd = 0,
+			leftEnd = 0,
+			changeTop = false,
+			changeLeft = false;
+
+		if (diffY > 0) {
+			topEnd = 0;
+			diffY = 0;
+			changeTop = true;
+		} else if (diffY < -650) {
+			topEnd = -650;
+			diffY = -650;
+			changeTop = true;
+		} else {
+			topEnd = diffY;
+		}
+
+		if (diffX > 0) {
+			leftEnd = 0;
+			diffX = 0;
+			changeLeft = true;
+		} else if(diffX < -2230) {
+			leftEnd = -2230;
+			diffX = -2230;
+			changeLeft = true;
+		} else {
+			leftEnd = diffX
+		}
+
+		if (changeLeft || changeTop) {
+			$('#paper').animate({
+				top: topEnd,
+				left: leftEnd
+			}, 200);
+		}
+	}
+
+	$('svg').on('mousedown', mouseDownLogic);
+	$(document).on('mouseup', mouseUpLogic);
+	$(document).on('mousemove', mouseMoveLogic);
 });
