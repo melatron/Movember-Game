@@ -23,11 +23,12 @@ body {
 }
 
 #paper {
-	transform: scale(3,3);
-	left: 0;
 	position: absolute;
-	top: 0;
-	height: 500px;
+		left: 0px;
+		top: 0px;
+	height: 400px;
 	width: 1000px;
-	background-color: green;
+	background-color: #FFD0D7;
+	transform-origin: 0 0;
+	transform: matrix(3, 0, 0, 3, 0, 0);
 }

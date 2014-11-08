@@ -44,7 +44,7 @@
 		}, 1000);
 
 		// Handle player click
-		$('.player', scope).on('click', function() {
+		$('.moustache', scope).on('click', function() {
 			// Check if we can play
 			if (!playing) {
 				return;
