@@ -96,14 +96,23 @@
 	margin-left: -100px;
 	bottom: -100px;
 	width: 200px;
-	height: 75px;
-	padding-top: 35px;
+	height: 50px;
+	padding-top: 10px;
 	padding-right: 75px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	text-align: right;
 	background-image: url('../images/ui/timer_box.png');
+}
+
+.timer-image {
+	position: absolute;
+	right: 10px;
+	bottom: 0px;
+	width: 60px;
+	height: 75px;
+	background-image: url('../images/ui/timer.png');
 }
 
 .caution-text {
