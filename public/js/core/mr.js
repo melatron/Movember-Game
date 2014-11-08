@@ -15,6 +15,16 @@ var mr = (function() {
 	return {
 		constants: {},
 		controllers: {},
+
+		// Fires the controller if provided
+		fireController: function(name, scope) {
+			var selectedController = this.controllers[name];
+
+			if (typeof selectedController === 'object') {
+				selectedController.fire(scope);
+			}
+		},
+
 		init: function () {
 			self = this;
 		}
