@@ -27,6 +27,7 @@ class App implements MessageComponentInterface
 		$numRecv = count($this->clients) - 1;
 		echo sprintf('Connection %d sending message "%s" to %d other connection%s' . "\n", $from->resourceId, $msg, $numRecv, $numRecv == 1 ? '' : 's');
 
+
 		$msg = json_decode($msg, true);
 		$route = explode('@', $msg['route']);
 		$controller = AbstractController::make($route[0]);
