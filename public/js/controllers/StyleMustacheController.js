@@ -27,18 +27,28 @@
 		score = 0;
 		$('.choose-item-dialog').html('');
 		fillMustageChancesObj(score);
-		fillDom();
-		addEvents();
+		//fillDom();
+		//addEvents();
 
-		ws.send(JSON.stringify({route: 'StyleMustache@win', mustanceNum: number, points: moustacheMapper[number]['reward'] * score}));
+		ws.send(JSON.stringify({ route: 'StyleMustache@win', mustanceNum: number, points: moustacheMapper[number]['reward'] * score }));
+		mr.controllers.Achievment.addAchievment('special-' + number);
+		$('.mustache-choice').off('click');
+		$('.choose-item-dialog').fadeOut(1000, function () {
+			//addEvents();
+		});
 	}
 
 	function failMustache() {
 		score = 0;
 		$('.choose-item-dialog').html('');
 		fillMustageChancesObj(score);
-		fillDom();
-		addEvents();
+		//fillDom();
+		//addEvents();
+
+		$('.mustache-choice').off('click');
+		$('.choose-item-dialog').fadeOut(1000, function () {
+			//addEvents();
+		});
 	}
 
 	function addEvents(){
