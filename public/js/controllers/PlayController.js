@@ -43,6 +43,7 @@
 				},
 				onCounterEnd: function() {
 					playing = false;
+					$(window).trigger('stageEnd');
 				}
 			});
 
