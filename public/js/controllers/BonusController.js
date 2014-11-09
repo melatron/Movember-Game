@@ -10,11 +10,11 @@
 
 	controller.init = function(scope) {
 		var bonusInterval,
-			bonusOnSeconds = 1,
+			bonusOnSeconds = 0.5,
 			bonuses = {
 				x2: {
-					chance: 0,
-					speed: 9000,
+					chance: 4,
+					speed: 7500,
 					class: 'x2',
 					timeouts: {
 						opacity1: null,
@@ -50,7 +50,7 @@
 					}
 				},
 				time: {
-					chance: 100,
+					chance: 8,
 					speed: 8000,
 					class: 'time',
 					bonusFunction: function() {
@@ -59,17 +59,13 @@
 					}
 				},
 				bigTime: {
-					chance: 0,
-					speed: 1000,
+					chance: 6,
+					speed: 7000,
 					class: 'big-time',
 					bonusFunction: function() {
 						mr.gameConfig.timer.addSeconds(3);
 					}
 				}
-			},
-			stayFor = {
-				min: 3,
-				max: 6
 			};
 
 		function spawnBonus(name) {
@@ -94,11 +90,19 @@
 		}
 
 		bonusInterval = setInterval(function() {
+			var bonusInThisInt = false;
+
 			// Loop trough all the bonuses
 			for (var bonus in bonuses) {
+				if (bonusInThisInt) {
+					return;
+				}
+
 				var chance = Math.floor((Math.random() * 100) + 1);
+				console.log(chance, bonuses[bonus].chance);
 
 				if (chance <= bonuses[bonus].chance) {
+					bonusInThisInt = true;
 					spawnBonus(bonus);
 				}
 			}

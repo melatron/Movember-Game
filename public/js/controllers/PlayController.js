@@ -21,7 +21,7 @@
 			.addClass('flipInX');
 
 		var volume = 0,
-			playTime = 10 + mr.controllers.Achievment.getBonusSeconds(),
+			playTime = 15 + mr.controllers.Achievment.getBonusSeconds(),
 			firstTap = false,
 			playing = false,
 			moustacheLevel = 1,
