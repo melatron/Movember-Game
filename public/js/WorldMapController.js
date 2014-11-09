@@ -28,7 +28,7 @@
 		for (var state in world) {
 			world[state].color = Raphael.getColor();
 			(function (st, state) {
-				st[0].style.cursor = "pointer";
+				st[0].style.cursor = "inherit";
 				st[0].onmouseover = function (e) {
 					currentNation && world[currentNation].animate({ fill: "#ff6700", stroke: "#b62600" }, 500);// && (document.getElementById(current).style.display = "");
 					st.animate({ fill: st.color, stroke: "#ccc" }, 500);
