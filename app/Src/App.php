@@ -17,7 +17,6 @@ class App implements MessageComponentInterface
 
 	public function onOpen(ConnectionInterface $conn)
 	{
-		// Store the new connection to send messages to later
 		$now = date('Y-m-j H:i:s');
 		$this->clients->attach($conn);
 		echo "New connection! ({$conn->resourceId}) ({$now})\n";
@@ -34,7 +33,6 @@ class App implements MessageComponentInterface
 
 	public function onClose(ConnectionInterface $conn)
 	{
-		// The connection is closed, remove it, as we can no longer send it messages
 		$this->clients->detach($conn);
 
 		echo "Connection {$conn->resourceId} has disconnected\n";
