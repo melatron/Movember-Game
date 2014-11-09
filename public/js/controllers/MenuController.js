@@ -7,6 +7,9 @@
 		var gameWrapper = $('.game-wrapper');
 
 		function showButtons(){
+			var bestStache = localStorage.getItem('highestMoustacheRank') || 0;
+			var stacheClass = bestStache ? 'moustache pointer animated trim t'+bestStache : 'moustache pointer animated';
+
 			$('#game-start-ui').animate({
 				right: '20px'
 			}, 700);
@@ -18,6 +21,8 @@
 			$('#sidebar').animate({
 				right: '-40%'
 			},1000);
+
+			$('.moustache').attr('class','moustache pointer animated trim t')
 		}
 
 		function hideButtons(){

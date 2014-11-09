@@ -15,6 +15,8 @@
 			mr.gameConfig.timer = '';
 		}
 
+		$('.moustache').attr('class','moustache pointer animated');
+
 		// Show the info how to start
 		$('.tap-to-start', scope)
 			.removeClass('ui-hide')

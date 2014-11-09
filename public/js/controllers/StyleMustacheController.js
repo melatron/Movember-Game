@@ -25,6 +25,11 @@
 	function winMustache(number, score) {
 		//console.log('YOU WON: ' + (moustacheMapper[number]['reward'] * score));
 		
+		if( !(localStorage.getItem('highestMoustacheRank')) || localStorage.getItem('highestMoustacheRank') < number){
+			localStorage.setItem('highestMoustacheRank', number);
+		}
+
+		$('.moustache').attr('class','moustache pointer animated trim t'+number);
 		mr.controllers.Achievment.addAchievment('special-' + number);
 		fillMustageChancesObj(0);
 		$('.mustache-choice').off('click');
@@ -33,7 +38,7 @@
 				$(this).fadeOut(300);
 				ws.send(JSON.stringify({ route: 'StyleMustache@win', mustanceNum: number, points: moustacheMapper[number]['reward'] * score }));
 				score = 0;
-				mr.fireController('Menu',$('.game-content'));
+				location.reload();
 			});
 		});
 	}
@@ -43,6 +48,9 @@
 		$('.mustache-choice').off('click');
 		$('.choose-item-dialog').fadeOut(1000, function () {
 			$('#craft-failed-text').fadeIn(1000);
+			$('#donate-stache').text('Retry').fadeIn(1000).on('click',function(){
+				location.reload();
+			});
 		});
 	}
 

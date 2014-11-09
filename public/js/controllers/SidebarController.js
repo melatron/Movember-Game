@@ -41,6 +41,7 @@
 	}
 
 	function addNewsPost(){
+		console.log('INVOKER');
 		var index = Math.floor(Math.random() * arrayCopy.length);
 		var newsPost = arrayCopy.splice(index,1);
 		var element = $('#news-box');
@@ -58,7 +59,8 @@
 	controller.init = function(scope) {
 		arrayCopy = newsStrings.splice(0);
 
-		newsInterval = setInterval(function(){addNewsPost(arrayCopy)},6000);
+		addNewsPost();
+		newsInterval = setInterval(function(){addNewsPost()},6000);
 
 		$('#news-box').empty();
 		showSidebar();
