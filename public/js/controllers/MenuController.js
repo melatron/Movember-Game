@@ -7,8 +7,9 @@
 		var gameWrapper = $('.game-wrapper');
 
 		function showButtons(){
-			var bestStache = localStorage.getItem('highestMoustacheRank') || 0;
-			var stacheClass = bestStache ? 'moustache pointer animated trim t'+bestStache : 'moustache pointer animated';
+			var bestStache = localStorage.getItem('highestMoustacheRank');
+			var stacheClass = bestStache != null ? 'moustache pointer animated trim t'+bestStache : 'moustache l0 pointer animated';
+			console.log(stacheClass);
 
 			$('#game-start-ui').animate({
 				right: '20px'
@@ -22,7 +23,7 @@
 				right: '-40%'
 			},1000);
 
-			$('.moustache').attr('class','moustache pointer animated trim t')
+			$('.moustache').attr('class', stacheClass)
 		}
 
 		function hideButtons(){

@@ -15,7 +15,7 @@
 			mr.gameConfig.timer = '';
 		}
 
-		$('.moustache').attr('class','moustache pointer animated');
+		$('.moustache').attr('class','moustache l0 pointer animated');
 
 		// Show the info how to start
 		$('.tap-to-start', scope)

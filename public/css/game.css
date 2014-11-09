@@ -61,19 +61,21 @@
 			left: 140px;
 		width: 131px;
 		height: 87px;
-		opacity: 0.4;
+		opacity: 1;
 		background: url('../images/moustaches/moustaches.png') no-repeat -5px -1634px;
 		animation-duration: 0.7s;
   		animation-delay: 0s;
 		-webkit-animation-duration: 0.7s;
   		-webkit-animation-delay: 0s;
 	}
+		.moustache.l0 {
+			opacity: 0.4;
+		}
 		.moustache.l1 {
 				top: 189px;
 				left: 140px;
 			width: 131px;
 			height: 87px;
-			opacity: 1;
 			background-position: -5px -1634px;
 		}
 		.moustache.l2 {
@@ -156,6 +158,9 @@
 			height: 52px;
 			background: url('../images/moustaches/trims.png') no-repeat -0px -405px;
 		}
+			.moustache.trim.t0 {
+				background-position: -10000px -1000px; 
+			}
 			.moustache.trim.t2 {
 					left: 162px;
 					top: 205px;
