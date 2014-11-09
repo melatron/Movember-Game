@@ -34,7 +34,6 @@
 		$('.mustache-choice').off('click');
 		$('.choose-item-dialog').fadeIn(1000, function () {
 			$('.mustache-choice').off('click').on('click', function () {
-				console.log($(this).data('id'));
 				if (controller.gamble($(this).data('id'))) {
 					winMustache($(this).data('id'), score);
 				} else {
@@ -73,7 +72,6 @@
 		var a = Number(moustacheMapper[mustageNumber]) * 100;
 		var b = Math.random() * 10000;
 
-		console.log(a, b);
 		if (Number(moustacheMapper[mustageNumber]['chanceToWin']) * 100 > Math.random() * 10000) {
 			return true;
 		} else {
