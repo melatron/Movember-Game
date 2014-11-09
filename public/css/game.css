@@ -303,3 +303,29 @@
 	font-weight: bold;
 	font-family: Helsinki;
 }
+
+#craft-failed-text {
+	text-align: center;
+	color: #ff8d00;
+	position: relative;
+	margin: 0 auto;
+	font-size: 0.5em;
+	width: 200px;
+	display: none;
+	font-family: sans-serif;
+}
+
+#achievment-box {
+	position: absolute;
+	bottom: 15px;
+	left: 125px;
+	font-family: Helsinki;
+	text-align: center;
+	color: white;
+	background-color: #bf451c;
+	border: 5px solid #6b2209;
+	width: 200px;
+	height: 75px;
+	display: none;
+	z-index: 9999999;
+}
