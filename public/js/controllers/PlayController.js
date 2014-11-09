@@ -15,22 +15,22 @@
 			.addClass('flipInX');
 
 		var volume = 0,
-			playTime = 30,
+			playTime = 10,
 			firstTap = false,
 			playing = false,
 			multiplier = 1,
 			moustacheLevel = 1,
 			moustacheForms = {
-				1: 0,
-				2: 10,
-				3: 20,
-				4: 30,
-				5: 40,
-				6: 50,
-				7: 60,
-				8: 70,
-				9: 80,
-				10: 90
+				1: 20,
+				2: 40,
+				3: 62,
+				4: 87,
+				5: 115,
+				6: 147,
+				7: 182,
+				8: 221,
+				9: 265,
+				10: 315
 			},
 			playTimer = new mr.Countdown({
 				seconds: playTime,
