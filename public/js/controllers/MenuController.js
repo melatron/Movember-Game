@@ -14,6 +14,10 @@
 			$('#movember-rain-logo').animate({
 				top: '20px'
 			},1000);
+
+			$('#sidebar').animate({
+				right: '-40%'
+			},1000);
 		}
 
 		function hideButtons(){
