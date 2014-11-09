@@ -1,11 +1,36 @@
-﻿.choose-item-dialog {
-	cursor: url('../images/custom_cursor_hover.png'),auto;
-}
+﻿
 .moustache-tooltip {
 	width: 100px;
-	height: 100px;
-	background-color: red;
-	border: 1px solid black;
-	border-radius: 6px;
+	height: 120px;
+	background-color: #bc5438;
+	border-radius: 15px;
 	cursor: url('../images/custom_cursor_hover.png'),auto;
+}
+
+.choose-item-dialog {
+	cursor: url('../images/custom_cursor_hover.png'),auto;
+	position: relative;
+	margin: 25% auto 0 auto;
+	width: 250px;
+	height: 350px;
+	background: #7f3521;
+	display: none;
+	border: 3px solid #6d2411;
+	border-radius: 15px;
+}
+
+.mustache-choice {
+	margin: 6px;
+	width: 70px;
+	height: 70px;
+	background-color: #64EE12;
+	border: 2px solid #448F18;
+	box-sizing: border-box;
+	display: inline-block;
+	border-radius: 15px;
+	background-size:cover;
+}
+
+.mustache-choice:hover{
+	background-color: #bdff48;
 }

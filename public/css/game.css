@@ -198,21 +198,10 @@
 	color: #FF2700;
 }
 
-.choose-item-dialog {
+#donate-stache {
 	position: relative;
-	margin: 25% auto 0 auto;
-	width: 250px;
-	height: 300px;
-	background: blue;
-	display: none;
-}
-
-.mustache-choice {
-	width: 75px;
-	height: 75px;
-	background-color: gray;
-	border: 2px solid red;
-	display: inline-block;
+	display:none;
+	margin: 0 auto;
 }
 
 #game-start-ui {
@@ -296,4 +285,34 @@
 	color: #bc5438;
 	font-weight: bold;
 	font-family: Helsinki;
+}
+
+#craft-failed-text {
+	text-align: center;
+	color: #ff8d00;
+	position: relative;
+	margin: 0 auto;
+	font-size: 0.5em;
+	width: 200px;
+	display: none;
+	font-family: sans-serif;
+}
+
+#achievment-box {
+	position: absolute;
+	bottom: 15px;
+	left: 125px;
+	font-family: Helsinki;
+	text-align: center;
+	color: white;
+	background-color: #bf451c;
+	border: 5px solid #6b2209;
+	width: 200px;
+	height: 75px;
+	line-height: 75px;
+	vertical-align: middle;
+	display: none;
+	z-index: 9999999;
+	font-size: 1.2em;
+	border-radius: 15px;
 }
