@@ -15,7 +15,7 @@
 			.addClass('flipInX');
 
 		var volume = 0,
-			playTime = 10,
+			playTime = 30 + mr.controllers.Achievment.getBonusSeconds(),
 			firstTap = false,
 			playing = false,
 			multiplier = 1,
@@ -32,6 +32,7 @@
 				9: 265,
 				10: 315
 			},
+			achievementsTable = [50, 100, 250, 500, 1000],
 			playTimer = new mr.Countdown({
 				seconds: playTime,
 				onUpdateStatus: function(options) {
@@ -98,6 +99,13 @@
 				$(this).removeClass('l' + moustacheLevel);
 				moustacheLevel += 1;
 				$(this).addClass('l' + moustacheLevel + ' tada');
+			}
+
+			// Check for achievements
+			for (var i = 0; i < achievementsTable.length ; i++) {
+				if (volume == achievementsTable[i]) {
+					mr.controllers.Achievment.addAchievment('clicks-' + achievementsTable[i]);
+				}
 			}
 
 			$('.volume span', scope)
