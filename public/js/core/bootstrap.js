@@ -30,4 +30,6 @@ $(document).ready(function() {
 
 	// Fire the play logic
 	mr.fireController('Menu', $('.game-wrapper'));
+	//Init achievments
+	mr.fireController('Achievment',$('.game-wrapper'));
 });
