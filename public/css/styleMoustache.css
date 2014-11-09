@@ -1,0 +1,11 @@
+﻿.choose-item-dialog {
+	cursor: url('../images/custom_cursor_hover.png'),auto;
+}
+.moustache-tooltip {
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	border: 1px solid black;
+	border-radius: 6px;
+	cursor: url('../images/custom_cursor_hover.png'),auto;
+}

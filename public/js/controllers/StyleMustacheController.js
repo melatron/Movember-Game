@@ -9,16 +9,20 @@
 	var controller = new mr.controllers.BaseController,
 		difficultyCoeficient = 2.5,
 		ClicksForLevelOne = 62,
-		mustacheChancesObj = {};
+		moustacheMapper = {};
 
 	function fillMustageChancesObj(score) {
-		for (var mustacheLevel = 1; mustacheLevel <= 12; mustacheLevel++) {
-			mustacheChancesObj[mustacheLevel] = (Math.min(score / ((Math.exp(mustacheLevel / difficultyCoeficient) / Math.exp(1 / difficultyCoeficient)) * ClicksForLevelOne), 1) * 100).toFixed(2);
+		for (var moustacheLevel = 1; moustacheLevel <= 12; moustacheLevel++) {
+			var requiredGrowth = ((Math.exp(moustacheLevel / difficultyCoeficient) / Math.exp(1 / difficultyCoeficient)) * ClicksForLevelOne);
+			console.log(requiredGrowth);
+			moustacheMapper[moustacheLevel] = {};
+			moustacheMapper[moustacheLevel]['chanceToWin'] = (Math.min(score / requiredGrowth, 1) * 100).toFixed(2);
+			moustacheMapper[moustacheLevel]['reward'] = Math.floor(requiredGrowth) - (Math.floor(requiredGrowth) < 100 ? Math.floor(requiredGrowth) % 10 : Math.floor(requiredGrowth) % 100);
 		};
 	}
 
-	function winMustache(reward) {
-		console.log('YOU WON: ' + reward);
+	function winMustache(number, score) {
+		console.log('YOU WON: ' + (moustacheMapper[number]['reward'] * score));
 	}
 
 	function failMustache() {
@@ -26,31 +30,51 @@
 	}
 
 	controller.init = function (score) {
-		fillMustageChancesObj(score);
-		
-		
+		moustacheMapper = {};
+		$('.mustache-choice').off('click');
+		$('.choose-item-dialog').fadeIn(1000, function () {
+			$('.mustache-choice').off('click').on('click', function () {
+				console.log($(this).data('id'));
+				if (controller.gamble($(this).data('id'))) {
+					winMustache($(this).data('id'), score);
+				} else {
+					failMustache($(this).data('id'));
+				}
+			});
+		}).html('');
 
-		$('.choose-item-dialog').fadeIn(300);
-		for (var mustache in mustacheChancesObj) {
-			$('.choose-item-dialog').append('<div data-id="' + mustache + '" class="mustache-choice" data-chance=' + mustacheChancesObj[mustache] + '></div>');
+		fillMustageChancesObj(score);
+
+		for (var mustache in moustacheMapper) {
+			$('.choose-item-dialog').append('<div data-id="' + mustache + '" class="mustache-choice" data-chance=' +
+				moustacheMapper[mustache]['chanceToWin'] + '><span class="chance-holder"></span></div>');
 		}
-		$('.mustache-choice').off('click').on('click', function () {
-			console.log($(this).data('id'));
-			if (controller.gamble($(this).data('id'))) {
-				winMustache($(this).data('id'));
-			} else {
-				failMustache($(this).data('id'));
+
+		$('.mustache-choice').tooltip({
+			items: '[data-chance]',
+			track: true,
+			content: function (response) {
+				return '<div class="moustache-preview preview-' + $(this).data('id') +' "></div><span class="chance-holder">' + $(this).data('chance') +'%</span>';
+			},
+			tooltipClass: 'moustache-tooltip',
+			position: {
+				my: "left+15 bottom",
+				at: "right center"
+			},
+			show: {
+				delay: 500
 			}
 		});
+
 		console.log(score);
-		console.log(mustacheChancesObj);
+		console.log(moustacheMapper);
 	};
 	controller.gamble = function (mustageNumber) {
-		var a = Number(mustacheChancesObj[mustageNumber]) * 100;
+		var a = Number(moustacheMapper[mustageNumber]) * 100;
 		var b = Math.random() * 10000;
 
 		console.log(a, b);
-		if (Number(mustacheChancesObj[mustageNumber]) * 100 > Math.random() * 10000) {
+		if (Number(moustacheMapper[mustageNumber]['chanceToWin']) * 100 > Math.random() * 10000) {
 			return true;
 		} else {
 			return false;
