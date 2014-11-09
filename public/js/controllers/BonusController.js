@@ -9,12 +9,24 @@
 	var controller = new mr.controllers.BaseController;
 
 	controller.init = function(scope) {
+		function spawnBonus(name) {
+			var left = Math.floor((Math.random() * 350) + 1) + 50;
+			var bonusMarkup = $('<div class="bonus"></div>').css({
+				left: left
+			}).animate({
+				top: 600
+			}, 2000);
+
+			$('.game-section', scope)
+				.append(bonusMarkup);
+		}
+
 		var bonusInterval,
 			bonusOnSeconds = 1,
 			chances = {
-				x2: 10,
-				time: 15,
-				bigTime: 5
+				x2: 100,
+				time: 0,
+				bigTime: 0
 			},
 			stayFor = {
 				min: 3,
@@ -22,7 +34,14 @@
 			};
 
 		bonusInterval = setInterval(function() {
-			console.log('interval iterate');
+			// Loop trough all the bonuses
+			for (var bonus in chances) {
+				var chance = Math.floor((Math.random() * 100) + 1);
+
+				if (chance <= chances[bonus]) {
+					spawnBonus(bonus);
+				}
+			}
 		}, bonusOnSeconds * 1000);
 
 		$(window).on('stageEnd', function() {

@@ -14,8 +14,8 @@
 			.removeClass('ui-hide')
 			.addClass('flipInX');
 
-		var volume = 70,
-			playTime = 1,
+		var volume = 0,
+			playTime = 10,
 			firstTap = false,
 			playing = false,
 			multiplier = 1,
