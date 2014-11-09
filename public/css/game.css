@@ -128,8 +128,94 @@
 				left: 27px;
 			width: 324px;
 			height: 289px;
-			background-position: -5px -0px;
+			background-position: -5px 0px;
 		}
+
+		.moustache.trim {
+				left: 83px;
+				top: 205px;
+			width: 247px;
+			height: 52px;
+			background: url('../images/moustaches/trims.png') no-repeat -0px -405px;
+		}
+			.moustache.trim.t2 {
+					left: 162px;
+					top: 205px;
+				width: 90px;
+				height: 35px;
+				background-position: -243px -578px; 
+			}
+			.moustache.trim.t3 {
+					left: 161px;
+					top: 205px;
+				width: 92px;
+				height: 62px;
+				background-position: -241px -956px;
+			}
+			.moustache.trim.t4 {
+					left: 141px;
+					top: 201px;
+				width: 130px;
+				height: 83px;
+				background-position: -136px -783px;
+			}
+			.moustache.trim.t5 {
+					left: 141px;
+					top: 201px;
+				width: 130px;
+				height: 90px;
+				background-position: -136px -866px;
+			}
+			.moustache.trim.t6 {
+					left: 150px;
+					top: 205px;
+				width: 111px;
+				height: 98px;
+				background-position: -130px -956px;
+			}
+			.moustache.trim.t7 {
+					left: 83px;
+					top: 205px;
+				width: 247px;
+				height: 121px;
+				background-position: 0px -457px;
+			}
+			.moustache.trim.t8 {
+					left: 141px;
+					top: 201px;
+				width: 130px;
+				height: 67px;
+				background-position: 0px -929px;
+			}
+			.moustache.trim.t9 {
+					left: 137px;
+					top: 178px;
+				width: 136px;
+				height: 146px;
+				background-position: 0px -783px;
+			}
+			.moustache.trim.t10 {
+					left: 84px;
+					top: 185px;
+				width: 243px;
+				height: 205px;
+				background-position: 0px -578px;
+			}
+			.moustache.trim.t11 {
+					left: 38px;
+					top: 195px;
+				width: 333px;
+				height: 130px;
+				background-position: 0px 0px;
+			}
+			.moustache.trim.t12 {
+					left: 80px;
+					top: 185px;
+				width: 251px;
+				height: 275px;
+				background-position: 0px -130px;
+			}
+
 		.moustache .plus-box {
 			position: absolute;
 			width: 50px;
@@ -275,6 +361,8 @@
 
 .news-post {
 	display: block;
+	padding: 10px 0px;
+	opacity: 0;
 	border-top: 1px solid #6d2411;
 	color: #6d2411;
 	font-weight: bold;
