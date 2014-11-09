@@ -215,6 +215,12 @@
 	display: inline-block;
 }
 
+#donate-stache {
+	position: relative;
+	display:none;
+	margin: 0 auto;
+}
+
 #game-start-ui {
 	position: absolute;
 		top: 200px;
