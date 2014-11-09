@@ -62,9 +62,9 @@
 		width: 131px;
 		height: 87px;
 		background: url('../images/moustaches/moustaches.png') no-repeat -5px -1634px;
-		animation-duration: 0.25s;
+		animation-duration: 0.7s;
   		animation-delay: 0s;
-		-webkit-animation-duration: 0.25s;
+		-webkit-animation-duration: 0.7s;
   		-webkit-animation-delay: 0s;
 	}
 		.moustache.l2 {
@@ -160,9 +160,9 @@
 }
 	.volume span {
 		animation-duration: 0.25s;
-  		animation-delay: 0s;
+		animation-delay: 0s;
 		-webkit-animation-duration: 0.25s;
-  		-webkit-animation-delay: 0s;
+		-webkit-animation-delay: 0s;
 	}
 
 .counter {

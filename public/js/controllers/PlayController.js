@@ -97,7 +97,7 @@
 			if (volume == moustacheForms[moustacheLevel + 1]) {
 				$(this).removeClass('l' + moustacheLevel);
 				moustacheLevel += 1;
-				$(this).addClass('l' + moustacheLevel);
+				$(this).addClass('l' + moustacheLevel + ' tada');
 			}
 
 			$('.volume span', scope)
@@ -113,7 +113,9 @@
 					$(this).remove();
 				});
 			$(this).append(plus);
-		});
+		}).on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+			$(this).removeClass('tada');
+		});;
 		
 		function showPlayComponents(){
 			$('.volume', scope).animate({
