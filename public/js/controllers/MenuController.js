@@ -34,6 +34,7 @@
 		$('#play-button').on('click',function(){
 			commonButtonActions();
 			mr.fireController('Play', gameWrapper);
+			mr.fireController('Sidebar',gameWrapper);
 		});
 
 		$('#donation-button').on('click',function(){

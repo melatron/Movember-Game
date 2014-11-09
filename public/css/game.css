@@ -211,6 +211,7 @@
 	width: 75px;
 	height: 75px;
 	background-color: gray;
+	border: 2px solid red;
 	display: inline-block;
 }
 
@@ -254,5 +255,45 @@
 	width: 40%;
 	top: 0px;
 	right: -40%;
-	background-color: red;
+}
+
+#news-window {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	padding: 5%;
+	box-sizing: border-box;
+	background-color: #7f3521;
+	border-left: 6px solid #6d2411;
+}
+
+#news-box {
+	position: relative;
+	width: auto;
+	height: 90%;
+	background-color: #bc5438;
+	border-radius: 10px;
+	margin: 10px auto 0 auto;
+	overflow: hidden;
+	text-align: center;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.news-post {
+	display: block;
+	border-top: 1px solid #6d2411;
+	color: #6d2411;
+	font-weight: bold;
+}
+
+.news-post:first-child {
+	color: white;
+	border-top: none;
+}
+
+.hashtag-title {
+	color: #bc5438;
+	font-weight: bold;
+	font-family: Helsinki;
 }
