@@ -4,7 +4,7 @@
 
 	controller.init = function(scope) {
 		function showSidebar(){
-
+			
 		}
 	};
 

@@ -11,10 +11,17 @@
 .nation-tooltip {
 	position:absolute;
 	display: none;
-	width: 100px;
-	height: 100px;
-	background-color: green;
-	border: 1px solid black;
-	border-radius: 10px;
+	width: 150px;
+	height: 200px;
+	background-color: #FFD0D7;
+	border: 4px solid #b62600;
+	text-align: center;
+	font-weight: bold;
+	border-radius: 2px;
+	color: #b62600;
 	z-index: 100;
+}
+
+.one-four-text {
+	font-size: 1.4em;
 }
