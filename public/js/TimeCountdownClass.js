@@ -1,4 +1,10 @@
-﻿mr.Countdown = function Countdown(options) {
+﻿/*
+ * Handles all the logic while manning up
+ *
+ * @author: antony.dikov
+ * @issued 08.11.2014
+ */
+mr.Countdown = function Countdown(options) {
 	'use strict';
 
 	var timer,

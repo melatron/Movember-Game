@@ -98,25 +98,30 @@
 			var relativeXPosition = (e.pageX - parentOffset.left); //offset -> method allows you to retrieve the current position of an element 'relative' to the document
 			var relativeYPosition = (e.pageY - parentOffset.top);
 			//console.log(startingX, startingY);
-
-			resX = (parseInt(relativeXPosition) - startingX) + diffX,
-			resY = parseInt(relativeYPosition) - startingY + diffY;
+			var newResX = (parseInt(relativeXPosition) - startingX) + diffX,
+				newResY = parseInt(relativeYPosition) - startingY + diffY;
+			
 			//console.log('x: ' + resX + ' y: ' + resY);
-			var constPx = 20,
-				flag = resY > 0 + constPx || resY < -(maxWidth + constPx) || resX > 0 + constPx || resX < -(maxHeight + constPx),
-				aa = (0 + constPx),
-				bb = (-(maxWidth + constPx)),
-				cc = (0 + constPx),
-				dd = (-(maxHeight + constPx));
-			console.log(flag);
+			var constPx = 25,
+				flag = newResY > 0 + constPx || newResY < -(maxHeight + constPx) || newResX > 0 + constPx || newResX < -(maxWidth + constPx),
+				topF = (newResY > 0 + constPx),
+				leftF = (newResX > 0 + constPx),
+				bottomF = (newResY < -(maxHeight + constPx)),
+				rightF = (newResX < -(maxWidth + constPx));
+			//console.log('top: ' + (resY > 0 + constPx));
+			//console.log('left: ' + (resX > 0 + constPx));
+			//console.log('bottom: ' + (resY < -(maxHeight + constPx)));
+			//console.log('right: ' + (resX < -(maxWidth + constPx)));
 
-			console.log('t: ' + aa + '| d: ' + bb + '| l: ' + cc + '| r: ' + dd);
-			//if (!flag) {
+			//console.log('t: ' + aa + '| d: ' + bb + '| l: ' + cc + '| r: ' + dd);
+			if (!flag) {
+				resX = (parseInt(relativeXPosition) - startingX) + diffX,
+				resY = parseInt(relativeYPosition) - startingY + diffY;
 				$('#paper').css({
-					top: resY,
-					left: resX
+					top: !topF && !bottomF ? resY : '', 
+					left: !leftF && !rightF ? resX : ''
 				});
-			//}
+			}
 		}
 	}
 
@@ -161,7 +166,41 @@
 			$('#paper').animate({
 				top: topEnd,
 				left: leftEnd
-			}, 200);
+			}, 100);
+		}
+	}
+
+	function mouseWheelLogic(e) {
+		var delta = Math.max(-1, Math.min(1, (e.originalEvent.wheelDelta || -e.originalEvent.detail)));
+		console.log(delta);
+		if (zoomFactor > 2 && delta < 0) {
+			zoomFactor--;
+			$('#paper').css({
+				'top': '0px',
+				'left': '0px'
+			});
+			resY = 0;
+			resX = 0;
+
+			$('#paper').css({
+				'transform-origin': '0 0',
+				'transform': 'matrix(' + zoomFactor + ', 0, 0, ' + zoomFactor + ', 0, 0)'
+			});
+			console.log('zoomOut');
+		} else if (zoomFactor < 5 && delta > 0) {
+			zoomFactor++;
+			$('#paper').css({
+				'top': '0px',
+				'left': '0px'
+			});
+			resY = 0;
+			resX = 0;
+
+			$('#paper').css({
+				'transform-origin': '0 0',
+				'transform': 'matrix(' + zoomFactor + ', 0, 0, ' + zoomFactor + ', 0, 0)'
+			});
+			console.log('zoomIn');
 		}
 	}
 
@@ -169,6 +208,7 @@
 		$('svg').off('mousedown').on('mousedown', mouseDownLogic);
 		$(document).off('mouseup').on('mouseup', mouseUpLogic);
 		$(document).off('mousemove').on('mousemove', mouseMoveLogic);
+		$(document).off('mousewheel').on('mousewheel', mouseWheelLogic);
 		$('.close-button').off('click').on('click',function(){
 			closeWorldMap();
 		});

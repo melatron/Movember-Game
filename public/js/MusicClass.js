@@ -1,4 +1,10 @@
-﻿function PlayList() {
+﻿/*
+ * Handles all the logic while manning up
+ *
+ * @author: antony.dikov
+ * @issued 08.11.2014
+ */
+function PlayList() {
 	var questSounds = preloader.returnQuestMusicArrayCopy(),
 		mainSounds = preloader.returnMainMusicArrayCopy(),
 		currentMainSongIndex = 0;
