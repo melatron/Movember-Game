@@ -13,7 +13,7 @@ class MongoAdapter
 	public function connect($username = '', $password = '')
 	{
 		try {
-			$this->mongo = new \MongoClient('mongodb://localhost/Hack');
+			$this->mongo = new \MongoClient('mongodb://localhost/movember');
 		} catch (\Exception $ex) {
 			throw $ex;
 			throw new CannotConnectException("DSN: {$this->dsn}");
