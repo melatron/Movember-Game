@@ -10,12 +10,20 @@
 			$('#game-start-ui').animate({
 				right: '20px'
 			}, 700);
+
+			$('#movember-rain-logo').animate({
+				top: '20px'
+			},1000);
 		}
 
 		function hideButtons(){
 			$('#game-start-ui').animate({
 				right: '-260px'
 			}, 700);
+
+			$('#movember-rain-logo').animate({
+				top: '-200px'
+			},1000);
 		}
 
 		function commonButtonActions(){

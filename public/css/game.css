@@ -17,6 +17,16 @@
 	font-size: 1.7em;
 }
 
+#movember-rain-logo {
+	position: absolute;
+	left: 50px;
+	top: -200px;
+	width: 650px;
+	height: 90px;
+	z-index: 200;
+	background-image: url('../images/movember_rain.png');
+}
+
 .close-button {
 	z-index: 9999;
 	font-family: 'Helsinki';
@@ -27,10 +37,9 @@
 	height: 30px;
 	font-size: 30px;
 	color: #bf1111;
-	text-shadow: 
-		0px 0px 3px rgba(255, 255, 255, 1),
-		0px 0px 3px rgba(255, 255, 255, 1),
-		0px 0px 3px rgba(255, 255, 255, 1);
+	text-shadow: 0px 0px 3px rgba(255, 255, 255, 1),
+				0px 0px 3px rgba(255, 255, 255, 1),
+				0px 0px 3px rgba(255, 255, 255, 1);
 }
 
 .close-button:hover {
@@ -54,9 +63,9 @@
 		height: 145px;
 		background: url('../images/moustaches/moustache_1.png');
 		animation-duration: 0.25s;
-		animation-delay: 0s;
+  		animation-delay: 0s;
 		-webkit-animation-duration: 0.25s;
-		-webkit-animation-delay: 0s;
+  		-webkit-animation-delay: 0s;
 	}
 		.moustache .plus-box {
 			position: absolute;
@@ -86,9 +95,9 @@
 }
 	.volume span {
 		animation-duration: 0.25s;
-		animation-delay: 0s;
+  		animation-delay: 0s;
 		-webkit-animation-duration: 0.25s;
-		-webkit-animation-delay: 0s;
+  		-webkit-animation-delay: 0s;
 	}
 
 .counter {
@@ -114,10 +123,6 @@
 	width: 60px;
 	height: 75px;
 	background-image: url('../images/ui/timer.png');
-	animation-duration: 0.4s;
-	animation-delay: 0s;
-	-webkit-animation-duration: 0.4s;
-	-webkit-animation-delay: 0s;
 }
 
 .caution-text {
@@ -148,6 +153,7 @@
 
 #donation-description {
 	position: relative;
+	margin: 0 auto;
 	width: 200px;
 }
 
