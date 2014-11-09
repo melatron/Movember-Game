@@ -50,11 +50,11 @@
 				unlockedAchievments.push(achievment);
 				$('#achievment-box')
 				.text(achievmentMerits[achievment].name)
-				.fadeIn(function(){
+				.fadeIn(300,function(){
 					setTimeout(function(){
 						$('#achievment-box').fadeOut(300);
 					},2000);
-				},300);
+				});
 				localStorage.setItem('unlockedAchievments',JSON.stringify(unlockedAchievments));
 			}
 		}
