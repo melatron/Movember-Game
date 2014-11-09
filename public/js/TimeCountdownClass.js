@@ -49,7 +49,7 @@ mr.Countdown = function Countdown(options) {
 	};
 
 	this.addSeconds = function (secondsToAdd) {
-		seconds += secondsToAdd;
+		seconds += secondsToAdd * 1000;
 	}
 
 	this.removeSeconds = function (secondsToRemove) {

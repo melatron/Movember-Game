@@ -15,6 +15,10 @@ var mr = (function() {
 	return {
 		constants: {},
 		controllers: {},
+		gameConfig: {
+			timer: '',
+			multiplier: 1
+		},
 
 		// Fires the controller if provided
 		fireController: function(name, scope) {

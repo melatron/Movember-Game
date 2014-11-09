@@ -9,16 +9,21 @@
 	var controller = new mr.controllers.BaseController;
 
 	controller.init = function(scope) {
+		// Check if the play timer is not already there
+		if (typeof mr.gameConfig.timer === 'object') {
+			mr.gameConfig.timer.stop();
+			mr.gameConfig.timer = '';
+		}
+
 		// Show the info how to start
 		$('.tap-to-start', scope)
 			.removeClass('ui-hide')
 			.addClass('flipInX');
 
 		var volume = 0,
-			playTime = 30 + mr.controllers.Achievment.getBonusSeconds(),
+			playTime = 10 + mr.controllers.Achievment.getBonusSeconds(),
 			firstTap = false,
 			playing = false,
-			multiplier = 1,
 			moustacheLevel = 1,
 			moustacheForms = {
 				1: 20,
@@ -32,39 +37,47 @@
 				9: 265,
 				10: 315
 			},
-			achievementsTable = [50, 100, 250, 500, 1000],
-			playTimer = new mr.Countdown({
-				seconds: playTime,
-				onUpdateStatus: function(options) {
-					var markup = $('#timer', scope);
+			achievementsTable = [50, 100, 250, 500, 1000];
 
-					if (markup.length > 0) {
-						var seconds = Math.floor(options.ms / 1000);
-						
-						// Check if the timer is below 20% || 10%
-						if (seconds <= 5) {
-							markup.addClass('danger-text');
-							$('.timer-image', scope).addClass('pulse');
-						} else if (seconds <= 10) {
-							markup.addClass('caution-text');
-						} 
+		mr.gameConfig.timer = new mr.Countdown({
+			seconds: playTime,
+			onUpdateStatus: function(options) {
+				var markup = $('#timer', scope);
 
-						markup.text(options.min + ':' + options.s);
-					} else {
-						timer.stop();
-					}
-				},
-				onCounterEnd: function() {
-					playing = false;
-					$(window).trigger('stageEnd');
+				if (markup.length > 0) {
+					var seconds = Math.floor(options.ms / 1000);
+					
+					// Check if the timer is below 20% || 10%
+					if (seconds <= 5) {
+						markup.addClass('danger-text');
+						$('.timer-image', scope).addClass('pulse');
+					} else if (seconds <= 10) {
+						markup.addClass('caution-text');
+					} 
+
+					markup.text(options.min + ':' + options.s);
+				} else {
+					timer.stop();
 				}
-			});
+			},
+			onCounterEnd: function() {
+				playing = false;
+				mr.gameConfig.timer = '';
+
+				$(window).trigger('stageEnd');
+				mr.controllers.Bonus.clearBonuses();
+			}
+		});
+
+		$('#timer', scope).on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+			$(this).removeClass('pulse');
+		});
 
 		// Start time fix
 		var startTime = new mr.Countdown({});
 		$('#timer', scope).html(startTime.formatSeconds(playTime));
 
-		$('.volume span').on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+		$('.volume span', scope).on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 			$(this).removeClass('pulse');
 		});
 
@@ -79,7 +92,7 @@
 					.on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 						$(this).remove();
 
-						playTimer.start();
+						mr.gameConfig.timer.start();
 						playing = true;
 
 						mr.fireController('Bonus', $('.game-wrapper'));
@@ -92,7 +105,7 @@
 				return;
 			}
 
-			volume += 1 * multiplier;
+			volume += 1 * mr.gameConfig.multiplier;
 
 			// Check if we reached the next level moustache
 			if (volume == moustacheForms[moustacheLevel + 1]) {
