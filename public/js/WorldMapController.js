@@ -64,7 +64,7 @@
 					//}
 					//console.log('mesteneto e qko neshto');
 				}
-				console.log('59', st[0]);
+				//console.log('59', st[0]);
 				//if (state == "AF") { Hovering your country !!!;
 				//	st[0].onmouseover();
 				//}

@@ -3,7 +3,7 @@
 	<head>
   		<meta charset="utf-8" />
 
- 		<title>Moustache</title>
+ 		<title>Movember Rain</title>
   		<meta name="description" content="A game about a stache" />
   		<meta name="author" content="Bropundzel" />
 
@@ -33,35 +33,38 @@
 					</div>
 					<div class="counter">
 						<span id="timer">00:00</span>
-						<div class="timer-image"></div>
+						<div class="timer-image animated"></div>
 					</div>
 				</div>
 				<div id="game-start-ui">
 					<button class="big-button" id="play-button">
 						<img src="images/ui/moustache_icon.png">
 						<span> Play</span>
-						</button>
-					<button class="big-button" id="donation-button">
-						<img src="images/ui/donation_icon.png">
-						<span> Donate</span>
 					</button>
 					<button class="big-button" id="map-button">
 						<img src="images/ui/world_map_icon.png">
 						<span> Map</span>
 					</button>
+					<button class="big-button" id="donation-button">
+						<img src="images/ui/donation_icon.png">
+						<span> About</span>
+					</button>
 				</div>
 				<div id="donation-window">
-					<div class="close-button">X</div>
+					<div class="close-button pointer">X</div>
 					<div class="movember-logo"></div>
-					<p id="donation-description">November is a month dedicated to raising awareness about men's health issues. While growing a moustache certainly helps, the best way to contribute to the fight against cancer is to donate. Clicking below will open a new window where you can make your donation.</p>
-					<button id="donate-open" class="big-button">Thank you</button>
+					<p id="donation-description" class="mauto clear">
+						November is a month dedicated to raising awareness about men's health issues. While growing a moustache certainly helps, the best way to contribute to the fight against cancer is to donate. Clicking below will open a new window where you can help. <br /><br />
+						<strong class="fright">Thank You!</strong>
+					</p>
+					<button id="donate-open" class="big-button">Donate</button>
 				</div>
 			</div>
 			<!-- END PLAY SCREEN -->
 
 			<!-- START WORLD MAP -->
 			<div class="worldmap">
-				<div class="close-button">X</div>
+				<div class="close-button pointer">X</div>
 				<div id="paper"></div>
 				<div class="nation-tooltip">
 					<div class="country-moustache-image"></div>
@@ -89,6 +92,7 @@
 		<script src="js/controllers/MenuController.js"></script>
 		<script src="js/controllers/PlayController.js"></script>
 		<script src="js/controllers/DonationController.js"></script>
+		<script src="js/controllers/BonusController.js"></script>
 
 		<script src="js/world.js"></script>
 		<script src="js/WorldMapController.js"></script>
