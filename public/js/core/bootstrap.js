@@ -31,5 +31,12 @@ $(document).ready(function() {
 	// Fire the play logic
 	mr.fireController('Menu', $('.game-wrapper'));
 	//Init achievments
-	mr.fireController('Achievment',$('.game-wrapper'));
+	mr.fireController('Achievment', $('.game-wrapper'));
+
+	mr.music = new PlayList();
+	mr.music.startMainMusic();
+	//$(document).off('click').on('click', function () {
+	//	mr.music.click();
+	//})
+	
 });

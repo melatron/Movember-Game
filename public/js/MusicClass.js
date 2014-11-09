@@ -7,6 +7,7 @@
 function PlayList() {
 	var questSounds = //preloader.returnQuestMusicArrayCopy(),
 		mainSounds = [new Audio('sounds/MainSound.mp3')],
+		clickSound = new Audio('sounds/click.mp3');
 		currentMainSongIndex = 0;
 
 	this.startMainMusic = function () {
@@ -68,6 +69,9 @@ function PlayList() {
 				break;
 		}
 	};
+	this.click = function () {
+		clickSound.play();
+	}
 	this.loadSound = function (url) {
 		var temp = new Audio();
 		temp.src = url;

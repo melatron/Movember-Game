@@ -31,18 +31,21 @@
 			hideButtons();
 		}
 
-		$('#play-button').on('click',function(){
+		$('#play-button').on('click', function () {
+			mr.music.click();
 			commonButtonActions();
 			mr.fireController('Play', gameWrapper);
 			mr.fireController('Sidebar',gameWrapper);
 		});
 
-		$('#donation-button').on('click',function(){
+		$('#donation-button').on('click', function () {
+			mr.music.click();
 			commonButtonActions();
 			mr.fireController('Donate',gameWrapper);
 		});
 
-		$('#map-button').on('click',function(){
+		$('#map-button').on('click', function () {
+			mr.music.click();
 			commonButtonActions();
 			mr.controllers.WorldMap.open();
 		});
