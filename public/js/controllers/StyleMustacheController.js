@@ -9,7 +9,8 @@
 	var controller = new mr.controllers.BaseController,
 		difficultyCoeficient = 2.5,
 		ClicksForLevelOne = 62,
-		moustacheMapper = {};
+		moustacheMapper = {},
+		score = 0;
 
 	function fillMustageChancesObj(score) {
 		for (var moustacheLevel = 1; moustacheLevel <= 12; moustacheLevel++) {
@@ -23,31 +24,25 @@
 
 	function winMustache(number, score) {
 		console.log('YOU WON: ' + (moustacheMapper[number]['reward'] * score));
+		score = 0;
+		$('.choose-item-dialog').html('');
+		fillDom();
+		addEvents();
+		fillMustageChancesObj(score);
 	}
 
 	function failMustache() {
 		console.log('YOU ARE A NOOB!');
 	}
 
-	controller.init = function (score) {
-		moustacheMapper = {};
-		$('.mustache-choice').off('click');
-		$('.choose-item-dialog').fadeIn(1000, function () {
-			$('.mustache-choice').off('click').on('click', function () {
-				if (controller.gamble($(this).data('id'))) {
-					winMustache($(this).data('id'), score);
-				} else {
-					failMustache($(this).data('id'));
-				}
-			});
-		}).html('');
-
-		fillMustageChancesObj(score);
-
-		for (var mustache in moustacheMapper) {
-			$('.choose-item-dialog').append('<div data-id="' + mustache + '" class="mustache-choice" data-chance=' +
-				moustacheMapper[mustache]['chanceToWin'] + '><span class="chance-holder"></span></div>');
-		}
+	function addEvents(){
+		$('.mustache-choice').off('click').on('click', function () {
+			if (controller.gamble($(this).data('id'))) {
+				winMustache($(this).data('id'), score);
+			} else {
+				failMustache($(this).data('id'));
+			}
+		});
 
 		$('.mustache-choice').tooltip({
 			items: '[data-chance]',
@@ -64,6 +59,26 @@
 				delay: 500
 			}
 		});
+	}
+
+	function fillDom() {
+		for (var mustache in moustacheMapper) {
+			$('.choose-item-dialog').append('<div data-id="' + mustache + '" class="mustache-choice" data-chance=' +
+				moustacheMapper[mustache]['chanceToWin'] + '><span class="chance-holder"></span></div>');
+		}
+	}
+
+	controller.init = function (points) {
+		score = points;
+		moustacheMapper = {};
+		$('.mustache-choice').off('click');
+		$('.choose-item-dialog').fadeIn(1000, function () {
+			addEvents();
+		}).html('');
+
+		fillMustageChancesObj(score);
+
+		fillDom();
 
 		console.log(score);
 		console.log(moustacheMapper);
