@@ -26,10 +26,13 @@
 	font-size: 1.4em;
 }
 #toggle-music {
-	position: relative;
-	top: 0px;
-	left: 0px;
-	width: 20px;
-	height: 20px;
-	background-color:blue;
+	position: absolute;
+	bottom: 2px;
+	right: 2px;
+	width: 32px;
+	height: 32px;
+	background: url('../images/music.png') no-repeat 0px 0px;
 }
+	#toggle-music.off {
+		background-image: url('../images/music-off.png');
+	}

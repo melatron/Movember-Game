@@ -35,8 +35,19 @@ $(document).ready(function() {
 
 	mr.music = new PlayList();
 	mr.music.startMainMusic();
+
+	var musicState = true;
 	$('#toggle-music').off('click').on('click', function () {
-		mr.music.pauseMainMusic();
+		if (musicState) {
+			mr.music.pauseMainMusic();
+			musicState = false;
+			$(this).addClass('off');
+		} else {
+			mr.music.resumeMainMusic();
+			musicState = true;
+			$(this).removeClass('off');
+		}
+		
 	});
 	//$(document).off('click').on('click', function () {
 	//	mr.music.click();
