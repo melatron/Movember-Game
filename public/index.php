@@ -1,6 +1,6 @@
 <?php
 require_once '../app/Core/_init.php';
-
+die;
 $arr = [
 	'AF' => 'Afghanistan',
 	'AX' => 'Aland Islands',
