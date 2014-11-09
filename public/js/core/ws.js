@@ -2,7 +2,7 @@ var ws = (function() {
 	'use strict';
 
 	try {
-		var host = "ws://localhost:5106",
+		var host = "ws://realm44.imperiaonline.org:1337",
 			socket = new WebSocket(host);
 
 		socket.onopen = function(e) {
@@ -10,7 +10,8 @@ var ws = (function() {
 		};
 
 		socket.onmessage = function(e) {
-			var data = $.parseJSON(e.data);
+			console.log(e.data);
+//			var data = $.parseJSON(e.data);
 
 		};
 
