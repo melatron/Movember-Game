@@ -5,10 +5,12 @@
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
+	background-color: #FFD0D7;
 }
 
 .nation-tooltip {
 	position:absolute;
+	display: none;
 	width: 100px;
 	height: 100px;
 	background-color: green;

@@ -114,13 +114,31 @@
 				});
 			$(this).append(plus);
 		});
+		
+		function showPlayComponents(){
+			$('.volume', scope).animate({
+				top: '0px'
+			}, 1000);
+			$('.counter', scope).animate({
+				bottom: '0px'
+			}, 1000);
+		}
 
-		$('.volume', scope).animate({
-			top: '0px'
-		}, 1000);
-		$('.counter', scope).animate({
-			bottom: '0px'
-		}, 1000);
+		function hidePlayComponents(){
+			$('.volume', scope).animate({
+				top: '-75px'
+			}, 1000);
+			$('.counter', scope).animate({
+				bottom: '-75px'
+			}, 1000);
+		}
+
+		showPlayComponents();
+
+		$(window).off('stageEnd').on('stageEnd',function(){
+			hidePlayComponents();
+			mr.fireController('StyleMustache',volume);
+		})
 	};
 
 	mr.controllers.Play = controller;

@@ -198,6 +198,15 @@
 	color: #FF2700;
 }
 
+.choose-item-dialog {
+	position: relative;
+	margin: 20% auto 0 auto;
+	width: 60%;
+	height: 70%;
+	background: blue;
+	display: none;
+}
+
 #game-start-ui {
 	position: absolute;
 		top: 200px;

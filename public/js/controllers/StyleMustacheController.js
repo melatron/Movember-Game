@@ -17,8 +17,10 @@
 		};
 	}
 
-	controller.init = function (scope, score) {
+	controller.init = function (score) {
 		fillMustageChancesObj(score);
+		console.log(score);
+		console.log(mustageChancesObj);
 	};
 	controller.gamble = function (mustageNumber) {
 		if (Number(NumbermustageChancesObj[mustageNumber]) * 100 < Math.random() * 10000) {
@@ -28,5 +30,5 @@
 		}
 	}
 
-	mr.controllers.styleMustage = controller;
+	mr.controllers.StyleMustache = controller;
 })();
