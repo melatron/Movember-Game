@@ -48,7 +48,7 @@
 }
 
 .pointer {
-	cursor: pointer;
+	cursor: url('../../images/custom_cursor_hover.png'), auto;
 }
 .no-select {
 	-webkit-user-select: none;

@@ -1,5 +1,5 @@
 /*
- * Handles all the logic while manning up
+ * Handles all the logic while manning the f*ck up
  *
  * @author: filip.ganchev
  * @issued 08.11.2014
@@ -9,7 +9,8 @@
 	var controller = new mr.controllers.BaseController;
 
 	controller.init = function(scope) {
-		$('.tap-to-start')
+		// Show the info how to start
+		$('.tap-to-start', scope)
 			.removeClass('ui-hide')
 			.addClass('flipInX');
 
@@ -17,10 +18,11 @@
 			playTime = 10,
 			firstTap = false,
 			playing = false,
+			multiplier = 1,
 			playTimer = new mr.Countdown({
 				seconds: playTime,
 				onUpdateStatus: function(options) {
-					var markup = $('.counter', scope);
+					var markup = $('#timer', scope);
 
 					if (markup.length > 0) {
 						var seconds = Math.floor(options.ms / 1000),
@@ -28,7 +30,8 @@
 						
 						// Check if the timer is below 20% || 10%
 						if (seconds <= 5) {
-							markup.addClass('danger-text pulse');
+							markup.addClass('danger-text');
+							$('.timer-image', scope).addClass('pulse');
 						} else if (seconds <= 10) {
 							markup.addClass('caution-text');
 						} 
@@ -40,6 +43,7 @@
 				},
 				onCounterEnd: function() {
 					playing = false;
+					$(window).trigger('stageEnd');
 				}
 			});
 
@@ -51,15 +55,17 @@
 		$('.moustache', scope).on('click', function(event) {
 			// Check for first tap
 			if (!firstTap) {
+				firstTap = true;
+
 				$('.tap-to-start', scope)
 					.addClass('flipOutX')
 					.on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 						$(this).remove();
 
-						firstTap = true;
-
 						playTimer.start();
 						playing = true;
+
+						mr.fireController('Bonus', $('.game-wrapper'));
 					});
 				return;
 			}
@@ -69,7 +75,7 @@
 				return;
 			}
 
-			volume += 1;
+			volume += 1 * multiplier;
 
 			$('.volume span', scope)
 				.text(volume)
@@ -85,9 +91,12 @@
 			$(this).append(plus);
 		});
 
-		$('.volume').animate({top:'0px'},1000);
-		$('.counter').animate({bottom:'0px'},1000);
-
+		$('.volume', scope).animate({
+			top: '0px'
+		}, 1000);
+		$('.counter', scope).animate({
+			bottom: '0px'
+		}, 1000);
 	};
 
 	mr.controllers.Play = controller;

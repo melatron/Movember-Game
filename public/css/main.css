@@ -7,6 +7,7 @@ body {
 	margin: 0px auto;
 	overflow: hidden;
 	color: #FFF;
+	font-family: Trebuchet MS, Verdana;
 	background: #000;
 }
 
@@ -18,6 +19,7 @@ button:focus {
 	width: 100%;
 	height: 100%;
 	position: relative;
+	cursor: url('../images/custom_cursor.png'),auto;
 }
 
 .big-button {
@@ -34,6 +36,7 @@ button:focus {
 
 .big-button:hover {
 	background-image: url(../images/ui/button_hover.png);
+	cursor: url('../images/custom_cursor_hover.png'),auto;
 }
 
 .big-button:active {

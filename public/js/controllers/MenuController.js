@@ -35,7 +35,7 @@
 
 		$('#map-button').on('click',function(){
 			commonButtonActions();
-			worldMapController.open();
+			mr.controllers.WorldMap.open();
 		});
 
 		showButtons();
