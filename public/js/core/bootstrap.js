@@ -29,5 +29,5 @@ $(document).ready(function() {
 	$('.game-wrapper .play').show();
 
 	// Fire the play logic
-	mr.fireController('Play', $('.game-wrapper'));
+	mr.fireController('Menu', $('.game-wrapper'));
 });
