@@ -24,7 +24,7 @@
 			playTime = 15 + mr.controllers.Achievment.getBonusSeconds(),
 			firstTap = false,
 			playing = false,
-			moustacheLevel = 1,
+			moustacheLevel = 0,
 			moustacheForms = {
 				1: 40,
 				2: 70,

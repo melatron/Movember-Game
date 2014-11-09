@@ -61,12 +61,19 @@
 			left: 140px;
 		width: 131px;
 		height: 87px;
-		background: url('../images/moustaches/moustaches.png') no-repeat -5px -1634px;
+		background: url('../images/moustaches/moustaches.png') no-repeat -1000px -1000px;
 		animation-duration: 0.7s;
   		animation-delay: 0s;
 		-webkit-animation-duration: 0.7s;
   		-webkit-animation-delay: 0s;
 	}
+		.moustache.l1 {
+				top: 189px;
+				left: 140px;
+			width: 131px;
+			height: 87px;
+			background-position: -5px -1634px;
+		}
 		.moustache.l2 {
 				top: 188px;
 				left: 138px;
@@ -296,9 +303,10 @@
 }
 
 #donate-stache {
-	position: relative;
-	display:none;
-	margin: 0 auto;
+	position: absolute;
+		bottom: 20px;
+		left: 125px;
+	display: none;
 }
 
 #game-start-ui {
