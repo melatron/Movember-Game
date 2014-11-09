@@ -15,10 +15,23 @@
 			.addClass('flipInX');
 
 		var volume = 0,
-			playTime = 10,
+			playTime = 30,
 			firstTap = false,
 			playing = false,
 			multiplier = 1,
+			moustacheLevel = 1,
+			moustacheForms = {
+				1: 0,
+				2: 10,
+				3: 20,
+				4: 30,
+				5: 40,
+				6: 50,
+				7: 60,
+				8: 70,
+				9: 80,
+				10: 90
+			},
 			playTimer = new mr.Countdown({
 				seconds: playTime,
 				onUpdateStatus: function(options) {
@@ -46,6 +59,7 @@
 					$(window).trigger('stageEnd');
 				}
 			});
+
 
 		$('.volume span').on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 			$(this).removeClass('pulse');
@@ -77,6 +91,13 @@
 
 			volume += 1 * multiplier;
 
+			// Check if we reached the next level moustache
+			if (volume == moustacheForms[moustacheLevel + 1]) {
+				$(this).removeClass('l' + moustacheLevel);
+				moustacheLevel += 1;
+				$(this).addClass('l' + moustacheLevel);
+			}
+
 			$('.volume span', scope)
 				.text(volume)
 				.addClass('pulse');
@@ -84,7 +105,7 @@
 			// Indicate the +1 hair
 			var plus = $('<div class="plus-box animated fadeOutUp"></div>')
 	            .css({
-					left: (event.pageX - (event.pageX - this.offsetLeft)) + 50
+					left: 35
 				}).on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 					$(this).remove();
 				});
