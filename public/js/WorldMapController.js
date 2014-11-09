@@ -102,9 +102,9 @@
 					left: + resX
 				});
 
-				
+
 		}
-		
+
 	}
 
 	function mouseUpLogic(e) {
@@ -204,3 +204,4 @@
 $(function () {
 	worldMapController.init();
 });
+
