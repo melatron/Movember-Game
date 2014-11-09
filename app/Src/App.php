@@ -25,7 +25,10 @@ class App implements MessageComponentInterface
 		$db = $mongo->selectDb('movember');
 		$collection = new \MongoCollection($db, 'users');
 
-		$all = iterator_to_array($collection->find());
+		$all = [];
+		foreach (iterator_to_array($collection->find()) as $value) {
+			$all[$value['country']] = $value;
+		}
 		$data = array('type' => 'connect', 'all' => $all);
 
 		$conn->send(json_encode($data));
