@@ -20,6 +20,15 @@ class App implements MessageComponentInterface
 		$now = date('Y-m-j H:i:s');
 		$this->clients->attach($conn);
 		echo "New connection! ({$conn->resourceId}) ({$now})\n";
+
+		$mongo = new \MongoClient('mongodb://localhost/movember');
+		$db = $mongo->selectDb('movember');
+		$collection = new \MongoCollection($db, 'users');
+
+		$all = iterator_to_array($collection->find());
+		$data = array('type' => 'connect', 'all' => $all);
+
+		$conn->send(json_encode($data));
 	}
 
 	public function onMessage(ConnectionInterface $from, $msg)

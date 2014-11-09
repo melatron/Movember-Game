@@ -101,7 +101,7 @@
 			//console.log(startingX, startingY);
 			var newResX = (parseInt(relativeXPosition) - startingX) + diffX,
 				newResY = parseInt(relativeYPosition) - startingY + diffY;
-			
+
 			//console.log('x: ' + resX + ' y: ' + resY);
 			var constPx = 25,
 				flag = newResY > 0 + constPx || newResY < -(maxHeight + constPx) || newResX > 0 + constPx || newResX < -(maxWidth + constPx),
@@ -119,7 +119,7 @@
 				resX = (parseInt(relativeXPosition) - startingX) + diffX,
 				resY = parseInt(relativeYPosition) - startingY + diffY;
 				$('#paper').css({
-					top: !topF && !bottomF ? resY : '', 
+					top: !topF && !bottomF ? resY : '',
 					left: !leftF && !rightF ? resX : ''
 				});
 			}
@@ -230,7 +230,8 @@
 		mr.fireController('Menu', $('.game-container'));
 	}
 
-	controller.init = function () {
+	controller.init = function (all) {
+		worldMap.fromServer = all;
 		setWorldMap();
 	}
 	controller.open = function () {

@@ -11,8 +11,11 @@ var ws = (function() {
 		};
 
 		socket.onmessage = function(e) {
-			console.log(e.data);
-//			var data = $.parseJSON(e.data);
+			var data = $.parseJSON(e.data);
+			if(data.type == 'connect') {
+				var all = data.all;
+				mr.controllers.WorldMap.init(all);
+			}
 		};
 
 		socket.onclose = function() {

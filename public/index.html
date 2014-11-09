@@ -7,13 +7,13 @@
 		<meta name="description" content="A game about a stache" />
 		<meta name="author" content="Bropundzel" />
 
-  		<!-- CSS -->
-  		<link rel="stylesheet" href="css/vendors/normalize.min.css" />
-  		<link rel="stylesheet" href="css/core/common.css" />
-  		<link rel="stylesheet" href="css/core/animations.css" />
-  		<link rel="stylesheet" href="css/main.css" />
-  		<link rel="stylesheet" href="css/game.css" />
-  		<link rel="stylesheet" href="css/worldmap.css" />
+		<!-- CSS -->
+		<link rel="stylesheet" href="css/vendors/normalize.min.css" />
+		<link rel="stylesheet" href="css/core/common.css" />
+		<link rel="stylesheet" href="css/core/animations.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/game.css" />
+		<link rel="stylesheet" href="css/worldmap.css" />
 		<link rel="stylesheet" href="css/styleMoustache.css" />
 		<link rel="stylesheet" href="css/bonuses.css" />
 
@@ -99,12 +99,6 @@
 		</div>
 		<!-- END GAME SCREEN -->
 
-		<!-- FACEBOOK -->
-		<div id="fb-root"></div>
-		<div class="fb-like" data-href="https://apps.facebook.com/movember_rain/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
-		<h3 id="fb-welcome"></h3>
-		<div class="fb-facepile" data-href="https://apps.facebook.com/movember_rain/" data-max-rows="1" data-colorscheme="light" data-size="medium" data-show-count="true"></div>
-
 		<!-- VENDORS -->
 		<script src="js/vendors/jquery-2.1.1.js"></script>
 		<script src="js/vendors/raphael-min.js"></script>
@@ -127,73 +121,5 @@
 		<script src="js/TimeCountdownClass.js"></script>
 		<!-- INIT -->
 		<script src="js/core/bootstrap.js"></script>
-
-		<script>
-			function statusChangeCallback(response) {
-				console.log('statusChangeCallback');
-				console.log(response);
-				if (response.status === 'connected') {
-				testAPI();
-				} else if (response.status === 'not_authorized') {
-				document.getElementById('fb-welcome').innerHTML = 'Please log ' +
-					'into this app.';
-				} else {
-				document.getElementById('fb-welcome').innerHTML = 'Please log ' +
-					'into Facebook.';
-				}
-			}
-
-			function checkLoginState() {
-				FB.getLoginStatus(function(response) {
-				statusChangeCallback(response);
-				});
-			}
-
-			window.fbAsyncInit = function() {
-			FB.init({
-				appId      : '1559772020925764',
-				cookie     : true,  // enable cookies to allow the server to access
-									// the session
-				xfbml      : true,  // parse social plugins on this page
-				version    : 'v2.1' // use version 2.1
-			});
-
-			FB.getLoginStatus(function(response) {
-				statusChangeCallback(response);
-			});
-
-			FB.logout(function(response) {
-
-			});
-
-			FB.login(
-					function(response) {
-						console.log(response);
-					},
-					{
-						scope: 'user_location',
-						auth_type: 'rerequest'
-					}
-					);
-			};
-
-			(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/bg_BG/sdk.js#xfbml=1&appId=1559772020925764&version=v2.0";
-			fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-
-			function testAPI() {
-				console.log('Welcome!  Fetching your information.... ');
-				FB.api('/me', function(response) {
-					console.log(JSON.stringify(response));
-				console.log('Successful login for: ' + response.name);
-				document.getElementById('fb-welcome').innerHTML =
-					'Thanks for logging in, ' + response.name + '!';
-				});
-			}
-		</script>
 	</body>
 </html>
