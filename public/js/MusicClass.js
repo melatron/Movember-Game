@@ -5,8 +5,8 @@
  * @issued 08.11.2014
  */
 function PlayList() {
-	var questSounds = preloader.returnQuestMusicArrayCopy(),
-		mainSounds = preloader.returnMainMusicArrayCopy(),
+	var questSounds = //preloader.returnQuestMusicArrayCopy(),
+		mainSounds = [new Audio('sounds/MainSound.mp3')],
 		currentMainSongIndex = 0;
 
 	this.startMainMusic = function () {
