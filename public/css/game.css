@@ -200,11 +200,18 @@
 
 .choose-item-dialog {
 	position: relative;
-	margin: 20% auto 0 auto;
-	width: 60%;
-	height: 70%;
+	margin: 25% auto 0 auto;
+	width: 250px;
+	height: 300px;
 	background: blue;
 	display: none;
+}
+
+.mustache-choice {
+	width: 75px;
+	height: 75px;
+	background-color: gray;
+	display: inline-block;
 }
 
 #game-start-ui {
