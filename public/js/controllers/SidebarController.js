@@ -23,7 +23,8 @@
 	'"It\'s as if I\'m broken" - Tragic tale of a man with just the left side of his moustache',
 	'Was Jesus\' beard a miracle? We think so. Watch the full report tonight at ten',
 	'"Women are more attracted to guys with facial hair" - hopeful guy with facial hair',
-	'"Beauty and the beast" is the number one ranked inspirational Movember movie'
+	'"Beauty and the beast" is the number one ranked inspirational Movember movie',
+	''
 	];
 	var arrayCopy = [];
 
@@ -42,8 +43,12 @@
 	function addNewsPost(){
 		var index = Math.floor(Math.random() * arrayCopy.length);
 		var newsPost = arrayCopy.splice(index,1);
-		var element =$('<span class="news-post">'+ newsPost +'</span>');
-		$('#news-box').prepend(element);
+		var element = $('#news-box');
+		$('<div class="news-post">'+ newsPost +'</div>')
+		.prependTo(element)
+		.animate({
+			opacity: 1
+		},300);
 
 		if(arrayCopy.length == 0){
 			clearInterval(newsInterval);

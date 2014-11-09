@@ -15,7 +15,7 @@
 	function fillMustageChancesObj(score) {
 		for (var moustacheLevel = 1; moustacheLevel <= 12; moustacheLevel++) {
 			var requiredGrowth = ((Math.exp(moustacheLevel / difficultyCoeficient) / Math.exp(1 / difficultyCoeficient)) * ClicksForLevelOne);
-			console.log(requiredGrowth);
+
 			moustacheMapper[moustacheLevel] = {};
 			moustacheMapper[moustacheLevel]['chanceToWin'] = (Math.min(score / requiredGrowth, 1) * 100).toFixed(2);
 			moustacheMapper[moustacheLevel]['reward'] = Math.floor(requiredGrowth) - (Math.floor(requiredGrowth) < 100 ? Math.floor(requiredGrowth) % 10 : Math.floor(requiredGrowth) % 100);
@@ -24,13 +24,13 @@
 
 	function winMustache(number, score) {
 		//console.log('YOU WON: ' + (moustacheMapper[number]['reward'] * score));
-
+		
 		mr.controllers.Achievment.addAchievment('special-' + number);
 		fillMustageChancesObj(0);
 		$('.mustache-choice').off('click');
 		$('.choose-item-dialog').fadeOut(1000, function () {
 			$('#donate-stache').fadeIn(200).off('click').on('click', function () {
-				ws.send(JSON.stringify({ route: 'StyleMustache@win', mustacheNum: number, points: moustacheMapper[number]['reward'] * score }));
+				ws.send(JSON.stringify({ route: 'StyleMustache@win', mustanceNum: number, points: moustacheMapper[number]['reward'] * score }));
 				score = 0;
 			});
 		});
@@ -53,27 +53,32 @@
 			}
 		});
 
-		$('.mustache-choice').tooltip({
-			items: '[data-chance]',
-			track: true,
-			content: function (response) {
-				return '<div class="moustache-preview preview-' + $(this).data('id') +' "></div><span class="chance-holder">' + $(this).data('chance') +'%</span>';
-			},
-			tooltipClass: 'moustache-tooltip',
-			position: {
-				my: "left+15 bottom",
-				at: "right center"
-			},
-			show: {
-				delay: 500
-			}
-		});
+		// $('.mustache-choice').tooltip({
+		// 	items: '[data-chance]',
+		// 	track: true,
+		// 	content: function (response) {
+		// 		return '<div class="preview moustache trim t' + $(this).data('id') +' "></div><div class="chance-holder">' + $(this).data('chance') +'%</div>';
+		// 	},
+		// 	tooltipClass: 'moustache-tooltip',
+		// 	position: {
+		// 		my: "left+15 bottom",
+		// 		at: "right center"
+		// 	},
+		// 	show: {
+		// 		delay: 400
+		// 	}
+		// });
 	}
 
 	function fillDom() {
+		$('.choose-item-dialog').append('<div class="choose-item-desc">'+
+							'<div>Style your stache!</div>'+
+							'<div>The better the mustache the harder it is to pull off.</div>'+
+						'</div>')
 		for (var mustache in moustacheMapper) {
-			$('.choose-item-dialog').append('<div data-id="' + mustache + '" class="mustache-choice" data-chance=' +
-				moustacheMapper[mustache]['chanceToWin'] + '><span class="chance-holder"></span></div>');
+			$('.choose-item-dialog').append('<div data-id="' + mustache + '" class="mustache-choice">'+
+				'<img src="images/moustaches/trims/'+mustache+'.png">'+
+				'<div class="chance-holder">'+Math.round(moustacheMapper[mustache]['chanceToWin'])+'% </div></div>');
 		}
 	}
 

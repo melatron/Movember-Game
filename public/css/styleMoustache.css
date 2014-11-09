@@ -10,9 +10,9 @@
 .choose-item-dialog {
 	cursor: url('../images/custom_cursor_hover.png'),auto;
 	position: relative;
-	margin: 25% auto 0 auto;
+	margin: 20% auto 0 auto;
 	width: 250px;
-	height: 350px;
+	height: 400px;
 	background: #7f3521;
 	display: none;
 	border: 3px solid #6d2411;
@@ -20,17 +20,38 @@
 }
 
 .mustache-choice {
+	position: relative;
 	margin: 6px;
 	width: 70px;
 	height: 70px;
 	background-color: #64EE12;
 	border: 2px solid #448F18;
 	box-sizing: border-box;
-	display: inline-block;
+	display: block;
+	float: left;
 	border-radius: 15px;
-	background-size:cover;
+	background-size: cover;
+}
+
+.mustache-choice>img{
+	height: auto;
+	max-width: 68px;
 }
 
 .mustache-choice:hover{
 	background-color: #bdff48;
+}
+
+.chance-holder{
+	text-align: center;
+	z-index: 20;
+	position: absolute;
+	bottom:5px;
+	width: 100%;
+	font-family: Trebuchet MS;
+}
+
+.choose-item-desc {
+	text-align: center;
+	font-size: 0.5em;
 }

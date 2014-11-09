@@ -216,6 +216,13 @@
 				background-position: 0px -130px;
 			}
 
+		.moustache.trim.preview {
+			-webkit-transform: scale(0.4);
+			transform: scale(0.4);
+			bottom:10px;
+			left: 10px;
+		}
+
 		.moustache .plus-box {
 			position: absolute;
 			width: 50px;
@@ -381,10 +388,10 @@
 
 #craft-failed-text {
 	text-align: center;
-	color: #ff8d00;
+	color: white;
 	position: relative;
 	margin: 0 auto;
-	font-size: 0.5em;
+	font-size: 0.8em;
 	width: 200px;
 	display: none;
 	font-family: sans-serif;
