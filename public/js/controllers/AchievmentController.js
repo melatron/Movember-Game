@@ -6,7 +6,8 @@
 	'special-1','special-2','special-3',
 	'special-4','special-5','special-6',
 	'special-7','special-8','special-9',
-	'special-10','special-11','special-12'
+	'special-10','special-11','special-12',
+	'clicks-50','clicks-100','clicks-200','clicks-300'
 	];
 
 	function Achievment(merit,name){
@@ -48,6 +49,7 @@
 			if(achievment == allAchievments[i]){
 				unlockedAchievments.push(achievment);
 				localStorage.setItem('unlockedAchievments',JSON.stringify(unlockedAchievments));
+				console.log(achievment);
 			}
 		}
 
