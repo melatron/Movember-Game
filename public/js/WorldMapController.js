@@ -49,7 +49,7 @@
 					$('.nation-tooltip').show()
 						.find('.country-name').text(worldMap.names[state]);
 					$('.nation-tooltip').find('.country-top-contributor').text(worldMap.fromServer[state] ? worldMap.fromServer[state].topContributor || 'None' : 'Beard Mon');
-					$('.nation-tooltip').find('.country-moustache-image').html('').append('<img src=' + (worldMap.fromServer[state] ? worldMap.fromServer[state].moustache || 'images/moustaches/trims/03.png' : 'images/moustaches/trims/03.png') + '>');
+					$('.nation-tooltip').find('.country-moustache-image').html('').append('<img src=' + (worldMap.fromServer[state] ? worldMap.fromServer[state].moustache || 'images/moustaches/trims/3.png' : 'images/moustaches/trims/3.png') + '>');
 					$('.nation-tooltip').find('.total-volume').text(parseInt(Math.random() * 100) + 'M');
 					//console.log(worldMap.names[state]);
 					//lastHoveredNation = currentNation;

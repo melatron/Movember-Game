@@ -36,7 +36,7 @@
 		$('.choose-item-dialog').fadeOut(1000, function () {
 			$('#donate-stache').fadeIn(200).off('click').on('click', function () {
 				$(this).fadeOut(300);
-				ws.send(JSON.stringify({ route: 'StyleMustache@win', mustanceNum: number, points: moustacheMapper[number]['reward'] * score }));
+				ws.send(JSON.stringify({ route: 'StyleMustache@win', mustacheNum: number, points: moustacheMapper[number]['reward'] * score }));
 				score = 0;
 				location.reload();
 			});
