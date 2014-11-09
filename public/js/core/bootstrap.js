@@ -35,6 +35,9 @@ $(document).ready(function() {
 
 	mr.music = new PlayList();
 	mr.music.startMainMusic();
+	$('#toggle-music').off('click').on('click', function () {
+		mr.music.pauseMainMusic();
+	});
 	//$(document).off('click').on('click', function () {
 	//	mr.music.click();
 	//})
