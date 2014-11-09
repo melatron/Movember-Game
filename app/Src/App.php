@@ -3,7 +3,7 @@ namespace Src;
 
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
-use Core\Application;
+use Controller\AbstractController;
 
 class App implements MessageComponentInterface
 {
@@ -27,11 +27,11 @@ class App implements MessageComponentInterface
 		$numRecv = count($this->clients) - 1;
 		echo sprintf('Connection %d sending message "%s" to %d other connection%s' . "\n", $from->resourceId, $msg, $numRecv, $numRecv == 1 ? '' : 's');
 
-		foreach ($this->clients as $client) {
-			$client->send($msg);
-		}
-// 		$app = Application::getInstance($msg);
-// 		$app->run(array('from' => $from, 'clients' => $this->clients));
+		$msg = json_decode($msg, true);
+		$route = explode('@', $msg['route']);
+		$controller = AbstractController::make($route[0]);
+		$method = $route[1];
+		$controller->$method($msg, $from, $this->clients);
 	}
 
 	public function onClose(ConnectionInterface $conn)
