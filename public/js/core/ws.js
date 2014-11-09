@@ -10,8 +10,7 @@ var ws = (function() {
 		};
 
 		socket.onmessage = function(e) {
-			console.log(e.data);
-//			var data = $.parseJSON(e.data);
+			var data = $.parseJSON(e.data);
 
 		};
 
