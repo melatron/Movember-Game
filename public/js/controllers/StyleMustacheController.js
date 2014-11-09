@@ -13,7 +13,7 @@
 
 	function fillMustageChancesObj(score) {
 		for (var mustageLevel = 1; mustageLevel <= 12; mustageLevel++) {
-			mustageChancesObj[mustageLevel] = (score / ((Math.exp(mustageLevel / difficultyCoeficient) / Math.exp(1 / difficultyCoeficient)) * ClicksForLevelOne) * 100).toFixed(2);
+			mustageChancesObj[mustageLevel] = (Math.min(score / ((Math.exp(mustageLevel / difficultyCoeficient) / Math.exp(1 / difficultyCoeficient)) * ClicksForLevelOne), 1) * 100).toFixed(2);
 		};
 	}
 
