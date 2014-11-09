@@ -24,30 +24,26 @@
 
 	function winMustache(number, score) {
 		//console.log('YOU WON: ' + (moustacheMapper[number]['reward'] * score));
-		score = 0;
-		$('.choose-item-dialog').html('');
-		fillMustageChancesObj(score);
-		//fillDom();
-		//addEvents();
-
-		ws.send(JSON.stringify({ route: 'StyleMustache@win', mustanceNum: number, points: moustacheMapper[number]['reward'] * score }));
+		
 		mr.controllers.Achievment.addAchievment('special-' + number);
+		fillMustageChancesObj(0);
 		$('.mustache-choice').off('click');
 		$('.choose-item-dialog').fadeOut(1000, function () {
-			//addEvents();
+			$('#donate-stache').fadeIn(200).off('click').on('click', function () {
+				ws.send(JSON.stringify({ route: 'StyleMustache@win', mustanceNum: number, points: moustacheMapper[number]['reward'] * score }));
+				score = 0;
+			});
 		});
 	}
 
 	function failMustache() {
-		score = 0;
-		$('.choose-item-dialog').html('');
-		fillMustageChancesObj(score);
-		//fillDom();
-		//addEvents();
-
+		fillMustageChancesObj(0);
 		$('.mustache-choice').off('click');
 		$('.choose-item-dialog').fadeOut(1000, function () {
-			//addEvents();
+			$('#donate-stache').fadeIn(200).off('click').on('click', function () {
+				ws.send(JSON.stringify({ route: 'StyleMustache@win', mustanceNum: number, points: moustacheMapper[number]['reward'] * score }));
+				score = 0;
+			});
 		});
 	}
 
