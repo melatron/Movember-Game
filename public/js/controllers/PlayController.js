@@ -38,8 +38,7 @@
 					var markup = $('#timer', scope);
 
 					if (markup.length > 0) {
-						var seconds = Math.floor(options.ms / 1000),
-							elapsed = (seconds / playTime) * 100;
+						var seconds = Math.floor(options.ms / 1000);
 						
 						// Check if the timer is below 20% || 10%
 						if (seconds <= 5) {
@@ -60,6 +59,9 @@
 				}
 			});
 
+		// Start time fix
+		var startTime = new mr.Countdown({});
+		$('#timer', scope).html(startTime.formatSeconds(playTime));
 
 		$('.volume span').on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 			$(this).removeClass('pulse');
@@ -105,7 +107,8 @@
 			// Indicate the +1 hair
 			var plus = $('<div class="plus-box animated fadeOutUp"></div>')
 	            .css({
-					left: 35
+	            	top: -20,
+					left: (140 - parseInt($(this).css('left'))) + 30
 				}).on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 					$(this).remove();
 				});

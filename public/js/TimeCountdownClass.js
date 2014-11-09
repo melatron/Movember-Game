@@ -55,4 +55,12 @@ mr.Countdown = function Countdown(options) {
 	this.removeSeconds = function (secondsToRemove) {
 		seconds -= secondsToRemove;
 	}
+
+	this.formatSeconds = function(currentSeconds) {
+		var hours = parseInt(currentSeconds / 3600) < 10 ? '0' + parseInt(currentSeconds / 3600) : parseInt(currentSeconds / 3600),
+			minutes = parseInt(currentSeconds / 60) % 60 < 10 ? '0' + parseInt(currentSeconds / 60) % 60 : parseInt(currentSeconds / 60) % 60,
+			secondZ = parseInt(currentSeconds) % 60 < 10 ? '0' + parseInt(currentSeconds) % 60 : parseInt(currentSeconds) % 60;
+
+		return minutes + ':' + secondZ;
+	}
 };
