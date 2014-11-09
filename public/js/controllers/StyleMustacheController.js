@@ -23,16 +23,22 @@
 	}
 
 	function winMustache(number, score) {
-		console.log('YOU WON: ' + (moustacheMapper[number]['reward'] * score));
+		//console.log('YOU WON: ' + (moustacheMapper[number]['reward'] * score));
 		score = 0;
 		$('.choose-item-dialog').html('');
+		fillMustageChancesObj(score);
 		fillDom();
 		addEvents();
-		fillMustageChancesObj(score);
+
+		ws.send(JSON.stringify({route: 'StyleMustache@win', mustanceNum: number, points: moustacheMapper[number]['reward'] * score}));
 	}
 
 	function failMustache() {
-		console.log('YOU ARE A NOOB!');
+		score = 0;
+		$('.choose-item-dialog').html('');
+		fillMustageChancesObj(score);
+		fillDom();
+		addEvents();
 	}
 
 	function addEvents(){
