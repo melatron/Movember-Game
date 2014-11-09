@@ -5,7 +5,7 @@
 	var newsStrings = [
 	'Growing the stache has never been easier than with bear hormones. Warning: Might kill non-bears',
 	'Man with weird moustache kindly asked to support different cause',
-	'Some women have taken up Movember. Divorce rates skyrockets.',
+	'Some women have taken up Movember. Divorce rates skyrocket.',
 	'Schwarzenegger and Stalone\'s total moustache mass almost reaches Chuck Norris\' stubble',
 	'Moustache extensions; Fad or here to stay?',
 	'First Panda with a moustache discovered in the East. Celebrity auction for it\'s pelt this Tuesday',
@@ -25,6 +25,7 @@
 	'"Women are more attracted to guys with facial hair" - hopeful guy with facial hair',
 	'"Beauty and the beast" is the number one ranked inspirational Movember movie'
 	];
+	var arrayCopy = [];
 
 	function showSidebar(){
 			$('#sidebar').animate({
@@ -32,16 +33,27 @@
 			},1000);
 		}
 
-		function hideSidebar(){
-			$('#sidebar').animate({
-				right: '-40%'
-			},1000);
+	function hideSidebar(){
+		$('#sidebar').animate({
+			right: '-40%'
+		},1000);
+	}
+
+	function addNewsPost(){
+		var index = Math.floor(Math.random() * arrayCopy.length);
+		var newsPost = arrayCopy.splice(index,1);
+		var element =$('<span class="news-post">'+ newsPost +'</span>');
+		$('#news-box').prepend(element);
+
+		if(arrayCopy.length == 0){
+			clearInterval(newsInterval);
 		}
+	}
 
 	controller.init = function(scope) {
-		var arrayCopy = newsStrings.splice(0);
+		arrayCopy = newsStrings.splice(0);
 
-		newsInterval = setInterval
+		newsInterval = setInterval(function(){addNewsPost(arrayCopy)},6000);
 
 		$('#news-box').empty();
 		showSidebar();
