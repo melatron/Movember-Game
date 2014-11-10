@@ -110,7 +110,7 @@
 			volume += 1 * mr.gameConfig.multiplier;
 
 			// Check if we reached the next level moustache
-			if (volume == moustacheForms[moustacheLevel + 1]) {
+			if (volume >= moustacheForms[moustacheLevel + 1]) {
 				$(this).removeClass('l' + moustacheLevel);
 				moustacheLevel += 1;
 				$(this).addClass('l' + moustacheLevel + ' tada');
